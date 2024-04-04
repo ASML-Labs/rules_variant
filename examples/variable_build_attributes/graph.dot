@@ -1,0 +1,53 @@
+digraph CG {
+  graph [splines=ortho, nodesep=0.6, ranksep=1, pad=0.5, rankdir=TB, clusterrank=local, overlap=false];
+  overlap=false;
+  node [shape=box];
+  subgraph cluster_targets {
+    label="Targets";
+      "//variable_build_attributes:rhel8x64/main~v1 (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel8x64/main~v1</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel8x64/main~v1_with_cfg (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel8x64/main~v1_with_cfg</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel8x64/main_variable (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel8x64/main_variable</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel8x64/main_variable_with_cfg (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel8x64/main_variable_with_cfg</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel8x64/main_configurable (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel8x64/main_configurable</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel8x64/main_configurable_with_cfg (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel8x64/main_configurable_with_cfg</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel10x64/main~v2 (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel10x64/main~v2</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel10x64/main~v2_with_cfg (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel10x64/main~v2_with_cfg</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel10x64/main_variable (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel10x64/main_variable</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel10x64/main_variable_with_cfg (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel10x64/main_variable_with_cfg</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel10x64/main_configurable (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel10x64/main_configurable</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel10x64/main_configurable_with_cfg (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel10x64/main_configurable_with_cfg</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:main_variable (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:main_variable</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:main_configurable (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:main_configurable</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//variable_build_attributes:main (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:main</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+
+      "//variable_build_attributes:rhel8x64/main~v1_/main~v1 (alert_pinstripe)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel8x64/main~v1_/main~v1</TD></TR></TABLE>>,fillcolor="#2bdca4",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel8x64/main_variable_/main_variable (alert_pinstripe)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel8x64/main_variable_/main_variable</TD></TR></TABLE>>,fillcolor="#2bdca4",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel8x64/main_configurable_/main_configurable (alert_pinstripe)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel8x64/main_configurable_/main_configurable</TD></TR></TABLE>>,fillcolor="#2bdca4",color=black,style="filled,solid"]    
+
+      "//variable_build_attributes:rhel10x64/main~v2_/main~v2 (incompatible_height)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel10x64/main~v2_/main~v2</TD></TR></TABLE>>,fillcolor="#0b406a",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel10x64/main_variable_/main_variable (incompatible_height)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel10x64/main_variable_/main_variable</TD></TR></TABLE>>,fillcolor="#0b406a",color=black,style="filled,solid"]    
+      "//variable_build_attributes:rhel10x64/main_configurable_/main_configurable (incompatible_height)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//variable_build_attributes:rhel10x64/main_configurable_/main_configurable</TD></TR></TABLE>>,fillcolor="#0b406a",color=black,style="filled,solid"]    
+
+    targets [style=invis];
+  }
+  subgraph cluster_configs {
+    label="Configs";
+      "(alert_pinstripe)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">2bdca4 (alert_pinstripe)</TD></TR></TABLE>>,fillcolor="#2bdca4",color=black,style="filled,solid",shape=ellipse]
+      "(incompatible_height)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">0b406a (incompatible_height)</TD></TR></TABLE>>,fillcolor="#0b406a",color=black,style="filled,solid",shape=ellipse]
+      "(diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">eec668 (diligent_technician)</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid",shape=ellipse]
+    configs [style=invis];
+  }
+  configs -> targets [style=invis];
+  "//variable_build_attributes:rhel10x64/main_variable_with_cfg (diligent_technician)" -> "//variable_build_attributes:rhel10x64/main_variable_/main_variable (incompatible_height)" [color="#eec668"]
+  "//variable_build_attributes:rhel8x64/main~v1 (diligent_technician)" -> "//variable_build_attributes:rhel8x64/main~v1_with_cfg (diligent_technician)" [color="#eec668"]
+  "//variable_build_attributes:rhel10x64/main~v2 (diligent_technician)" -> "//variable_build_attributes:rhel10x64/main~v2_with_cfg (diligent_technician)" [color="#eec668"]
+  "//variable_build_attributes:rhel10x64/main_configurable (diligent_technician)" -> "//variable_build_attributes:rhel10x64/main_configurable_with_cfg (diligent_technician)" [color="#eec668"]
+  "//variable_build_attributes:rhel8x64/main_variable (diligent_technician)" -> "//variable_build_attributes:rhel8x64/main_variable_with_cfg (diligent_technician)" [color="#eec668"]
+  "//variable_build_attributes:rhel8x64/main_configurable_with_cfg (diligent_technician)" -> "//variable_build_attributes:rhel8x64/main_configurable_/main_configurable (alert_pinstripe)" [color="#eec668"]
+  "//variable_build_attributes:rhel10x64/main_variable (diligent_technician)" -> "//variable_build_attributes:rhel10x64/main_variable_with_cfg (diligent_technician)" [color="#eec668"]
+  "//variable_build_attributes:rhel8x64/main_variable_with_cfg (diligent_technician)" -> "//variable_build_attributes:rhel8x64/main_variable_/main_variable (alert_pinstripe)" [color="#eec668"]
+  "//variable_build_attributes:rhel8x64/main_configurable (diligent_technician)" -> "//variable_build_attributes:rhel8x64/main_configurable_with_cfg (diligent_technician)" [color="#eec668"]
+  "//variable_build_attributes:rhel10x64/main_configurable_with_cfg (diligent_technician)" -> "//variable_build_attributes:rhel10x64/main_configurable_/main_configurable (incompatible_height)" [color="#eec668"]
+  "//variable_build_attributes:rhel8x64/main~v1_with_cfg (diligent_technician)" -> "//variable_build_attributes:rhel8x64/main~v1_/main~v1 (alert_pinstripe)" [color="#eec668"]
+  "//variable_build_attributes:rhel10x64/main~v2_with_cfg (diligent_technician)" -> "//variable_build_attributes:rhel10x64/main~v2_/main~v2 (incompatible_height)" [color="#eec668"]
+}

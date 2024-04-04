@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg width="3135pt" height="495pt" viewBox="0.00 0.00 3135.00 495.23" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(36 459.2264)">
+<title>CG</title>
+<polygon fill="#ffffff" stroke="transparent" points="-36,36 -36,-459.2264 3099,-459.2264 3099,36 -36,36"/>
+<g id="clust2" class="cluster">
+<title>cluster_configs</title>
+<polygon fill="none" stroke="#000000" points="8,-332 8,-415.2264 957,-415.2264 957,-332 8,-332"/>
+<text text-anchor="middle" x="482.5" y="-398.6264" font-family="Times,serif" font-size="14.00" fill="#000000">Configs</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_targets</title>
+<polygon fill="none" stroke="#000000" points="10,-8 10,-300.8 3055,-300.8 3055,-8 10,-8"/>
+<text text-anchor="middle" x="1532.5" y="-284.2" font-family="Times,serif" font-size="14.00" fill="#000000">Targets</text>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main~v1 (diligent_technician) -->
+<g id="node1" class="node">
+<title>//variable_build_attributes:rhel8x64/main~v1 (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="3047,-268 2771,-268 2771,-232 3047,-232 3047,-268"/>
+<polygon fill="#ffffff" stroke="transparent" points="2779,-239 2779,-261 3039,-261 3039,-239 2779,-239"/>
+<polygon fill="none" stroke="#000000" points="2779,-239 2779,-261 3039,-261 3039,-239 2779,-239"/>
+<text text-anchor="start" x="2781.5699" y="-245.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel8x64/main~v1</text>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main~v1_with_cfg (diligent_technician) -->
+<g id="node2" class="node">
+<title>//variable_build_attributes:rhel8x64/main~v1_with_cfg (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="3045.5,-160 2712.5,-160 2712.5,-124 3045.5,-124 3045.5,-160"/>
+<polygon fill="#ffffff" stroke="transparent" points="2721,-131 2721,-153 3038,-153 3038,-131 2721,-131"/>
+<polygon fill="none" stroke="#000000" points="2721,-131 2721,-153 3038,-153 3038,-131 2721,-131"/>
+<text text-anchor="start" x="2723.6884" y="-137.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel8x64/main~v1_with_cfg</text>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main~v1 (diligent_technician)&#45;&gt;//variable_build_attributes:rhel8x64/main~v1_with_cfg (diligent_technician) -->
+<g id="edge3" class="edge">
+<title>//variable_build_attributes:rhel8x64/main~v1 (diligent_technician)-&gt;//variable_build_attributes:rhel8x64/main~v1_with_cfg (diligent_technician)</title>
+<path fill="none" stroke="#eec668" d="M2908.25,-231.6793C2908.25,-231.6793 2908.25,-170.0502 2908.25,-170.0502"/>
+<polygon fill="#eec668" stroke="#eec668" points="2911.7501,-170.0501 2908.25,-160.0502 2904.7501,-170.0502 2911.7501,-170.0501"/>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main~v1_/main~v1 (alert_pinstripe) -->
+<g id="node16" class="node">
+<title>//variable_build_attributes:rhel8x64/main~v1_/main~v1 (alert_pinstripe)</title>
+<polygon fill="#2bdca4" stroke="#000000" points="3046.5,-52 2709.5,-52 2709.5,-16 3046.5,-16 3046.5,-52"/>
+<polygon fill="#ffffff" stroke="transparent" points="2718,-23 2718,-45 3039,-45 3039,-23 2718,-23"/>
+<polygon fill="none" stroke="#000000" points="2718,-23 2718,-45 3039,-45 3039,-23 2718,-23"/>
+<text text-anchor="start" x="2720.8404" y="-29.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel8x64/main~v1_/main~v1</text>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main~v1_with_cfg (diligent_technician)&#45;&gt;//variable_build_attributes:rhel8x64/main~v1_/main~v1 (alert_pinstripe) -->
+<g id="edge12" class="edge">
+<title>//variable_build_attributes:rhel8x64/main~v1_with_cfg (diligent_technician)-&gt;//variable_build_attributes:rhel8x64/main~v1_/main~v1 (alert_pinstripe)</title>
+<path fill="none" stroke="#eec668" d="M2879,-123.6793C2879,-123.6793 2879,-62.0502 2879,-62.0502"/>
+<polygon fill="#eec668" stroke="#eec668" points="2882.5001,-62.0501 2879,-52.0502 2875.5001,-62.0502 2882.5001,-62.0501"/>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main_variable (diligent_technician) -->
+<g id="node3" class="node">
+<title>//variable_build_attributes:rhel8x64/main_variable (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="2727.5,-268 2420.5,-268 2420.5,-232 2727.5,-232 2727.5,-268"/>
+<polygon fill="#ffffff" stroke="transparent" points="2429,-239 2429,-261 2720,-261 2720,-239 2429,-239"/>
+<polygon fill="none" stroke="#000000" points="2429,-239 2429,-261 2720,-261 2720,-239 2429,-239"/>
+<text text-anchor="start" x="2431.8134" y="-245.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel8x64/main_variable</text>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main_variable_with_cfg (diligent_technician) -->
+<g id="node4" class="node">
+<title>//variable_build_attributes:rhel8x64/main_variable_with_cfg (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="2659,-160 2295,-160 2295,-124 2659,-124 2659,-160"/>
+<polygon fill="#ffffff" stroke="transparent" points="2303,-131 2303,-153 2651,-153 2651,-131 2303,-131"/>
+<polygon fill="none" stroke="#000000" points="2303,-131 2303,-153 2651,-153 2651,-131 2303,-131"/>
+<text text-anchor="start" x="2305.9319" y="-137.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel8x64/main_variable_with_cfg</text>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main_variable (diligent_technician)&#45;&gt;//variable_build_attributes:rhel8x64/main_variable_with_cfg (diligent_technician) -->
+<g id="edge6" class="edge">
+<title>//variable_build_attributes:rhel8x64/main_variable (diligent_technician)-&gt;//variable_build_attributes:rhel8x64/main_variable_with_cfg (diligent_technician)</title>
+<path fill="none" stroke="#eec668" d="M2539.75,-231.6793C2539.75,-231.6793 2539.75,-170.0502 2539.75,-170.0502"/>
+<polygon fill="#eec668" stroke="#eec668" points="2543.2501,-170.0501 2539.75,-160.0502 2536.2501,-170.0502 2543.2501,-170.0501"/>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main_variable_/main_variable (alert_pinstripe) -->
+<g id="node17" class="node">
+<title>//variable_build_attributes:rhel8x64/main_variable_/main_variable (alert_pinstripe)</title>
+<polygon fill="#2bdca4" stroke="#000000" points="2666,-52 2268,-52 2268,-16 2666,-16 2666,-52"/>
+<polygon fill="#ffffff" stroke="transparent" points="2276,-23 2276,-45 2658,-45 2658,-23 2276,-23"/>
+<polygon fill="none" stroke="#000000" points="2276,-23 2276,-45 2658,-45 2658,-23 2276,-23"/>
+<text text-anchor="start" x="2278.8274" y="-29.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel8x64/main_variable_/main_variable</text>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main_variable_with_cfg (diligent_technician)&#45;&gt;//variable_build_attributes:rhel8x64/main_variable_/main_variable (alert_pinstripe) -->
+<g id="edge9" class="edge">
+<title>//variable_build_attributes:rhel8x64/main_variable_with_cfg (diligent_technician)-&gt;//variable_build_attributes:rhel8x64/main_variable_/main_variable (alert_pinstripe)</title>
+<path fill="none" stroke="#eec668" d="M2477,-123.6793C2477,-123.6793 2477,-62.0502 2477,-62.0502"/>
+<polygon fill="#eec668" stroke="#eec668" points="2480.5001,-62.0501 2477,-52.0502 2473.5001,-62.0502 2480.5001,-62.0501"/>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main_configurable (diligent_technician) -->
+<g id="node5" class="node">
+<title>//variable_build_attributes:rhel8x64/main_configurable (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="2377.5,-268 2044.5,-268 2044.5,-232 2377.5,-232 2377.5,-268"/>
+<polygon fill="#ffffff" stroke="transparent" points="2053,-239 2053,-261 2370,-261 2370,-239 2053,-239"/>
+<polygon fill="none" stroke="#000000" points="2053,-239 2053,-261 2370,-261 2370,-239 2053,-239"/>
+<text text-anchor="start" x="2055.9831" y="-245.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel8x64/main_configurable</text>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main_configurable_with_cfg (diligent_technician) -->
+<g id="node6" class="node">
+<title>//variable_build_attributes:rhel8x64/main_configurable_with_cfg (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="2222.5,-160 1833.5,-160 1833.5,-124 2222.5,-124 2222.5,-160"/>
+<polygon fill="#ffffff" stroke="transparent" points="1842,-131 1842,-153 2215,-153 2215,-131 1842,-131"/>
+<polygon fill="none" stroke="#000000" points="1842,-131 1842,-153 2215,-153 2215,-131 1842,-131"/>
+<text text-anchor="start" x="1844.6016" y="-137.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel8x64/main_configurable_with_cfg</text>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main_configurable (diligent_technician)&#45;&gt;//variable_build_attributes:rhel8x64/main_configurable_with_cfg (diligent_technician) -->
+<g id="edge10" class="edge">
+<title>//variable_build_attributes:rhel8x64/main_configurable (diligent_technician)-&gt;//variable_build_attributes:rhel8x64/main_configurable_with_cfg (diligent_technician)</title>
+<path fill="none" stroke="#eec668" d="M2133.5,-231.6793C2133.5,-231.6793 2133.5,-170.0502 2133.5,-170.0502"/>
+<polygon fill="#eec668" stroke="#eec668" points="2137.0001,-170.0501 2133.5,-160.0502 2130.0001,-170.0502 2137.0001,-170.0501"/>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main_configurable_/main_configurable (alert_pinstripe) -->
+<g id="node18" class="node">
+<title>//variable_build_attributes:rhel8x64/main_configurable_/main_configurable (alert_pinstripe)</title>
+<polygon fill="#2bdca4" stroke="#000000" points="2224.5,-52 1775.5,-52 1775.5,-16 2224.5,-16 2224.5,-52"/>
+<polygon fill="#ffffff" stroke="transparent" points="1784,-23 1784,-45 2217,-45 2217,-23 1784,-23"/>
+<polygon fill="none" stroke="#000000" points="1784,-23 1784,-45 2217,-45 2217,-23 1784,-23"/>
+<text text-anchor="start" x="1786.6668" y="-29.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel8x64/main_configurable_/main_configurable</text>
+</g>
+<!-- //variable_build_attributes:rhel8x64/main_configurable_with_cfg (diligent_technician)&#45;&gt;//variable_build_attributes:rhel8x64/main_configurable_/main_configurable (alert_pinstripe) -->
+<g id="edge7" class="edge">
+<title>//variable_build_attributes:rhel8x64/main_configurable_with_cfg (diligent_technician)-&gt;//variable_build_attributes:rhel8x64/main_configurable_/main_configurable (alert_pinstripe)</title>
+<path fill="none" stroke="#eec668" d="M2028,-123.6793C2028,-123.6793 2028,-62.0502 2028,-62.0502"/>
+<polygon fill="#eec668" stroke="#eec668" points="2031.5001,-62.0501 2028,-52.0502 2024.5001,-62.0502 2031.5001,-62.0501"/>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main~v2 (diligent_technician) -->
+<g id="node7" class="node">
+<title>//variable_build_attributes:rhel10x64/main~v2 (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="2001.5,-268 1718.5,-268 1718.5,-232 2001.5,-232 2001.5,-268"/>
+<polygon fill="#ffffff" stroke="transparent" points="1727,-239 1727,-261 1994,-261 1994,-239 1727,-239"/>
+<polygon fill="none" stroke="#000000" points="1727,-239 1727,-261 1994,-261 1994,-239 1727,-239"/>
+<text text-anchor="start" x="1729.5699" y="-245.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel10x64/main~v2</text>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main~v2_with_cfg (diligent_technician) -->
+<g id="node8" class="node">
+<title>//variable_build_attributes:rhel10x64/main~v2_with_cfg (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="1760,-160 1420,-160 1420,-124 1760,-124 1760,-160"/>
+<polygon fill="#ffffff" stroke="transparent" points="1428,-131 1428,-153 1752,-153 1752,-131 1428,-131"/>
+<polygon fill="none" stroke="#000000" points="1428,-131 1428,-153 1752,-153 1752,-131 1428,-131"/>
+<text text-anchor="start" x="1430.6884" y="-137.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel10x64/main~v2_with_cfg</text>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main~v2 (diligent_technician)&#45;&gt;//variable_build_attributes:rhel10x64/main~v2_with_cfg (diligent_technician) -->
+<g id="edge4" class="edge">
+<title>//variable_build_attributes:rhel10x64/main~v2 (diligent_technician)-&gt;//variable_build_attributes:rhel10x64/main~v2_with_cfg (diligent_technician)</title>
+<path fill="none" stroke="#eec668" d="M1739.25,-231.6793C1739.25,-231.6793 1739.25,-170.0502 1739.25,-170.0502"/>
+<polygon fill="#eec668" stroke="#eec668" points="1742.7501,-170.0501 1739.25,-160.0502 1735.7501,-170.0502 1742.7501,-170.0501"/>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main~v2_/main~v2 (incompatible_height) -->
+<g id="node19" class="node">
+<title>//variable_build_attributes:rhel10x64/main~v2_/main~v2 (incompatible_height)</title>
+<polygon fill="#0b406a" stroke="#000000" points="1732,-52 1388,-52 1388,-16 1732,-16 1732,-52"/>
+<polygon fill="#ffffff" stroke="transparent" points="1396,-23 1396,-45 1724,-45 1724,-23 1396,-23"/>
+<polygon fill="none" stroke="#000000" points="1396,-23 1396,-45 1724,-45 1724,-23 1396,-23"/>
+<text text-anchor="start" x="1398.8404" y="-29.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel10x64/main~v2_/main~v2</text>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main~v2_with_cfg (diligent_technician)&#45;&gt;//variable_build_attributes:rhel10x64/main~v2_/main~v2 (incompatible_height) -->
+<g id="edge13" class="edge">
+<title>//variable_build_attributes:rhel10x64/main~v2_with_cfg (diligent_technician)-&gt;//variable_build_attributes:rhel10x64/main~v2_/main~v2 (incompatible_height)</title>
+<path fill="none" stroke="#eec668" d="M1576,-123.6793C1576,-123.6793 1576,-62.0502 1576,-62.0502"/>
+<polygon fill="#eec668" stroke="#eec668" points="1579.5001,-62.0501 1576,-52.0502 1572.5001,-62.0502 1579.5001,-62.0501"/>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main_variable (diligent_technician) -->
+<g id="node9" class="node">
+<title>//variable_build_attributes:rhel10x64/main_variable (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="1675,-268 1361,-268 1361,-232 1675,-232 1675,-268"/>
+<polygon fill="#ffffff" stroke="transparent" points="1369,-239 1369,-261 1667,-261 1667,-239 1369,-239"/>
+<polygon fill="none" stroke="#000000" points="1369,-239 1369,-261 1667,-261 1667,-239 1369,-239"/>
+<text text-anchor="start" x="1371.8134" y="-245.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel10x64/main_variable</text>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main_variable_with_cfg (diligent_technician) -->
+<g id="node10" class="node">
+<title>//variable_build_attributes:rhel10x64/main_variable_with_cfg (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="1351.5,-160 980.5,-160 980.5,-124 1351.5,-124 1351.5,-160"/>
+<polygon fill="#ffffff" stroke="transparent" points="989,-131 989,-153 1344,-153 1344,-131 989,-131"/>
+<polygon fill="none" stroke="#000000" points="989,-131 989,-153 1344,-153 1344,-131 989,-131"/>
+<text text-anchor="start" x="991.9319" y="-137.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel10x64/main_variable_with_cfg</text>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main_variable (diligent_technician)&#45;&gt;//variable_build_attributes:rhel10x64/main_variable_with_cfg (diligent_technician) -->
+<g id="edge8" class="edge">
+<title>//variable_build_attributes:rhel10x64/main_variable (diligent_technician)-&gt;//variable_build_attributes:rhel10x64/main_variable_with_cfg (diligent_technician)</title>
+<path fill="none" stroke="#eec668" d="M1374.5,-231.6793C1374.5,-200.8664 1374.5,-142 1374.5,-142 1374.5,-142 1361.7899,-142 1361.7899,-142"/>
+<polygon fill="#eec668" stroke="#eec668" points="1361.79,-138.5001 1351.7899,-142 1361.7899,-145.5001 1361.79,-138.5001"/>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main_variable_/main_variable (incompatible_height) -->
+<g id="node20" class="node">
+<title>//variable_build_attributes:rhel10x64/main_variable_/main_variable (incompatible_height)</title>
+<polygon fill="#0b406a" stroke="#000000" points="1344.5,-52 939.5,-52 939.5,-16 1344.5,-16 1344.5,-52"/>
+<polygon fill="#ffffff" stroke="transparent" points="948,-23 948,-45 1337,-45 1337,-23 948,-23"/>
+<polygon fill="none" stroke="#000000" points="948,-23 948,-45 1337,-45 1337,-23 948,-23"/>
+<text text-anchor="start" x="950.8274" y="-29.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel10x64/main_variable_/main_variable</text>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main_variable_with_cfg (diligent_technician)&#45;&gt;//variable_build_attributes:rhel10x64/main_variable_/main_variable (incompatible_height) -->
+<g id="edge2" class="edge">
+<title>//variable_build_attributes:rhel10x64/main_variable_with_cfg (diligent_technician)-&gt;//variable_build_attributes:rhel10x64/main_variable_/main_variable (incompatible_height)</title>
+<path fill="none" stroke="#eec668" d="M1162.5,-123.6793C1162.5,-123.6793 1162.5,-62.0502 1162.5,-62.0502"/>
+<polygon fill="#eec668" stroke="#eec668" points="1166.0001,-62.0501 1162.5,-52.0502 1159.0001,-62.0502 1166.0001,-62.0501"/>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main_configurable (diligent_technician) -->
+<g id="node11" class="node">
+<title>//variable_build_attributes:rhel10x64/main_configurable (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="1318,-268 978,-268 978,-232 1318,-232 1318,-268"/>
+<polygon fill="#ffffff" stroke="transparent" points="986,-239 986,-261 1310,-261 1310,-239 986,-239"/>
+<polygon fill="none" stroke="#000000" points="986,-239 986,-261 1310,-261 1310,-239 986,-239"/>
+<text text-anchor="start" x="988.9831" y="-245.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel10x64/main_configurable</text>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main_configurable_with_cfg (diligent_technician) -->
+<g id="node12" class="node">
+<title>//variable_build_attributes:rhel10x64/main_configurable_with_cfg (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="901,-160 505,-160 505,-124 901,-124 901,-160"/>
+<polygon fill="#ffffff" stroke="transparent" points="513,-131 513,-153 893,-153 893,-131 513,-131"/>
+<polygon fill="none" stroke="#000000" points="513,-131 513,-153 893,-153 893,-131 513,-131"/>
+<text text-anchor="start" x="515.6016" y="-137.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel10x64/main_configurable_with_cfg</text>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main_configurable (diligent_technician)&#45;&gt;//variable_build_attributes:rhel10x64/main_configurable_with_cfg (diligent_technician) -->
+<g id="edge5" class="edge">
+<title>//variable_build_attributes:rhel10x64/main_configurable (diligent_technician)-&gt;//variable_build_attributes:rhel10x64/main_configurable_with_cfg (diligent_technician)</title>
+<path fill="none" stroke="#eec668" d="M977.5686,-250C957.7325,-250 944.4043,-250 944.4043,-250 944.4043,-250 944.4043,-142 944.4043,-142 944.4043,-142 911.2461,-142 911.2461,-142"/>
+<polygon fill="#eec668" stroke="#eec668" points="911.2461,-138.5001 901.2461,-142 911.246,-145.5001 911.2461,-138.5001"/>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main_configurable_/main_configurable (incompatible_height) -->
+<g id="node21" class="node">
+<title>//variable_build_attributes:rhel10x64/main_configurable_/main_configurable (incompatible_height)</title>
+<polygon fill="#0b406a" stroke="#000000" points="896,-52 440,-52 440,-16 896,-16 896,-52"/>
+<polygon fill="#ffffff" stroke="transparent" points="448,-23 448,-45 888,-45 888,-23 448,-23"/>
+<polygon fill="none" stroke="#000000" points="448,-23 448,-45 888,-45 888,-23 448,-23"/>
+<text text-anchor="start" x="450.6668" y="-29.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:rhel10x64/main_configurable_/main_configurable</text>
+</g>
+<!-- //variable_build_attributes:rhel10x64/main_configurable_with_cfg (diligent_technician)&#45;&gt;//variable_build_attributes:rhel10x64/main_configurable_/main_configurable (incompatible_height) -->
+<g id="edge11" class="edge">
+<title>//variable_build_attributes:rhel10x64/main_configurable_with_cfg (diligent_technician)-&gt;//variable_build_attributes:rhel10x64/main_configurable_/main_configurable (incompatible_height)</title>
+<path fill="none" stroke="#eec668" d="M700.5,-123.6793C700.5,-123.6793 700.5,-62.0502 700.5,-62.0502"/>
+<polygon fill="#eec668" stroke="#eec668" points="704.0001,-62.0501 700.5,-52.0502 697.0001,-62.0502 704.0001,-62.0501"/>
+</g>
+<!-- //variable_build_attributes:main_variable (diligent_technician) -->
+<g id="node13" class="node">
+<title>//variable_build_attributes:main_variable (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="934.5,-268 681.5,-268 681.5,-232 934.5,-232 934.5,-268"/>
+<polygon fill="#ffffff" stroke="transparent" points="690,-239 690,-261 927,-261 927,-239 690,-239"/>
+<polygon fill="none" stroke="#000000" points="690,-239 690,-261 927,-261 927,-239 690,-239"/>
+<text text-anchor="start" x="692.6416" y="-245.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:main_variable</text>
+</g>
+<!-- //variable_build_attributes:main_configurable (diligent_technician) -->
+<g id="node14" class="node">
+<title>//variable_build_attributes:main_configurable (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="638.5,-268 359.5,-268 359.5,-232 638.5,-232 638.5,-268"/>
+<polygon fill="#ffffff" stroke="transparent" points="368,-239 368,-261 631,-261 631,-239 368,-239"/>
+<polygon fill="none" stroke="#000000" points="368,-239 368,-261 631,-261 631,-239 368,-239"/>
+<text text-anchor="start" x="370.8113" y="-245.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:main_configurable</text>
+</g>
+<!-- //variable_build_attributes:main (diligent_technician) -->
+<g id="node15" class="node">
+<title>//variable_build_attributes:main (diligent_technician)</title>
+<polygon fill="#eec668" stroke="#000000" points="316.5,-268 115.5,-268 115.5,-232 316.5,-232 316.5,-268"/>
+<polygon fill="#ffffff" stroke="transparent" points="124,-239 124,-261 309,-261 309,-239 124,-239"/>
+<polygon fill="none" stroke="#000000" points="124,-239 124,-261 309,-261 309,-239 124,-239"/>
+<text text-anchor="start" x="126.6844" y="-245.4" font-family="Times,serif" font-size="14.00" fill="#000000">//variable_build_attributes:main</text>
+</g>
+<!-- targets -->
+<!-- (alert_pinstripe) -->
+<g id="node23" class="node">
+<title>(alert_pinstripe)</title>
+<ellipse fill="#2bdca4" stroke="#000000" cx="839" cy="-361.2132" rx="110.1176" ry="21.4286"/>
+<polygon fill="#ffffff" stroke="transparent" points="769,-350.2132 769,-372.2132 909,-372.2132 909,-350.2132 769,-350.2132"/>
+<polygon fill="none" stroke="#000000" points="769,-350.2132 769,-372.2132 909,-372.2132 909,-350.2132 769,-350.2132"/>
+<text text-anchor="start" x="771.9435" y="-356.6132" font-family="Times,serif" font-size="14.00" fill="#000000">2bdca4 (alert_pinstripe)</text>
+</g>
+<!-- (incompatible_height) -->
+<g id="node24" class="node">
+<title>(incompatible_height)</title>
+<ellipse fill="#0b406a" stroke="#000000" cx="551" cy="-361.2132" rx="135.1148" ry="21.4286"/>
+<polygon fill="#ffffff" stroke="transparent" points="464,-350.2132 464,-372.2132 639,-372.2132 639,-350.2132 464,-350.2132"/>
+<polygon fill="none" stroke="#000000" points="464,-350.2132 464,-372.2132 639,-372.2132 639,-350.2132 464,-350.2132"/>
+<text text-anchor="start" x="466.9358" y="-356.6132" font-family="Times,serif" font-size="14.00" fill="#000000">0b406a (incompatible_height)</text>
+</g>
+<!-- (diligent_technician) -->
+<g id="node25" class="node">
+<title>(diligent_technician)</title>
+<ellipse fill="#eec668" stroke="#000000" cx="245" cy="-361.2132" rx="127.9727" ry="21.4286"/>
+<polygon fill="#ffffff" stroke="transparent" points="163,-350.2132 163,-372.2132 328,-372.2132 328,-350.2132 163,-350.2132"/>
+<polygon fill="none" stroke="#000000" points="163,-350.2132 163,-372.2132 328,-372.2132 328,-350.2132 163,-350.2132"/>
+<text text-anchor="start" x="165.6139" y="-356.6132" font-family="Times,serif" font-size="14.00" fill="#000000">eec668 (diligent_technician)</text>
+</g>
+<!-- configs -->
+<!-- configs&#45;&gt;targets -->
+</g>
+</svg>

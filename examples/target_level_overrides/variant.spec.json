@@ -1,0 +1,11 @@
+{
+  "__comments": [],
+  "black": {
+    "@examples//target_level_overrides:column_1": "black",
+    "@examples//target_level_overrides:column_2": "black"
+  },
+  "red": {
+    "@examples//target_level_overrides:column_1": "red",
+    "@examples//target_level_overrides:column_2": "red"
+  }
+}

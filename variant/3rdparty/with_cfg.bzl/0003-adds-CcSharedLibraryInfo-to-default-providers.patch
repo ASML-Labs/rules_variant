@@ -1,0 +1,24 @@
+From cb2228a4b34a6fba6ba556e47833502adc21c508 Mon Sep 17 00:00:00 2001
+From: Artur Stachecki <artur.stachecki@asml.com>
+Date: Fri, 22 Nov 2024 15:42:43 +0000
+Subject: [PATCH 3/3] adds CcSharedLibraryInfo to default providers
+
+---
+ with_cfg/private/rule_defaults.bzl | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/with_cfg/private/rule_defaults.bzl b/with_cfg/private/rule_defaults.bzl
+index d24f918..052dfae 100644
+--- a/with_cfg/private/rule_defaults.bzl
++++ b/with_cfg/private/rule_defaults.bzl
+@@ -5,6 +5,7 @@ DEFAULT_PROVIDERS = [
+     # special handling so that it isn't returned by the transitioning alias.
+     AnalysisTestResultInfo,
+     CcInfo,
++    CcSharedLibraryInfo,
+     CcToolchainConfigInfo,
+     DebugPackageInfo,
+     JavaInfo,
+-- 
+2.43.5
+

@@ -1,0 +1,54 @@
+digraph CG {
+  graph [splines=ortho, nodesep=0.6, ranksep=1, pad=0.5, rankdir=TB, clusterrank=local, overlap=false];
+  overlap=false;
+  node [shape=box];
+  subgraph cluster_diligent_technician___eec668 {
+    label="diligent_technician - eec668";
+      "//implicit_settings:windows/main.stripped (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:windows/main.stripped</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//implicit_settings:windows/main.dwp (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:windows/main.dwp</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//implicit_settings:windows/main (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:windows/main</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//implicit_settings:windows/main_with_cfg (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:windows/main_with_cfg</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//implicit_settings:main (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:main</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//implicit_settings:linux/main.stripped (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:linux/main.stripped</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//implicit_settings:linux/main.dwp (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:linux/main.dwp</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//implicit_settings:linux/main (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:linux/main</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//implicit_settings:linux/main_with_cfg (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:linux/main_with_cfg</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//implicit_settings:define_well_known (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:define_well_known</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//implicit_settings:well_known (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:well_known</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//implicit_settings:define_secret (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:define_secret</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+      "//implicit_settings:secret (diligent_technician)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:secret</TD></TR></TABLE>>,fillcolor="#eec668",color=black,style="filled,solid"]    
+
+  }
+  subgraph cluster_husky_coral___29033c {
+    label="husky_coral - 29033c";
+      "//implicit_settings:linux/main_/main (husky_coral)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:linux/main_/main</TD></TR></TABLE>>,fillcolor="#29033c",color=black,style="filled,solid"]    
+      "//implicit_settings:define_well_known (husky_coral)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:define_well_known</TD></TR></TABLE>>,fillcolor="#29033c",color=black,style="filled,solid"]    
+      "//implicit_settings:well_known (husky_coral)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:well_known</TD></TR></TABLE>>,fillcolor="#29033c",color=black,style="filled,solid"]    
+      "//implicit_settings:define_secret (husky_coral)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:define_secret</TD></TR></TABLE>>,fillcolor="#29033c",color=black,style="filled,solid"]    
+      "//implicit_settings:secret (husky_coral)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:secret</TD></TR></TABLE>>,fillcolor="#29033c",color=black,style="filled,solid"]    
+
+  }
+  subgraph cluster_svelte_rust___0cbd5d {
+    label="svelte_rust - 0cbd5d";
+      "//implicit_settings:windows/main_/main (svelte_rust)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:windows/main_/main</TD></TR></TABLE>>,fillcolor="#0cbd5d",color=black,style="filled,solid"]    
+      "//implicit_settings:define_well_known (svelte_rust)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:define_well_known</TD></TR></TABLE>>,fillcolor="#0cbd5d",color=black,style="filled,solid"]    
+      "//implicit_settings:well_known (svelte_rust)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:well_known</TD></TR></TABLE>>,fillcolor="#0cbd5d",color=black,style="filled,solid"]    
+      "//implicit_settings:define_secret (svelte_rust)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:define_secret</TD></TR></TABLE>>,fillcolor="#0cbd5d",color=black,style="filled,solid"]    
+      "//implicit_settings:secret (svelte_rust)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//implicit_settings:secret</TD></TR></TABLE>>,fillcolor="#0cbd5d",color=black,style="filled,solid"]    
+
+  }
+  "//implicit_settings:linux/main (diligent_technician)" -> "//implicit_settings:linux/main_with_cfg (diligent_technician)" [color="#eec668"]
+  "//implicit_settings:define_secret (husky_coral)" -> "//implicit_settings:secret (husky_coral)" [color="#29033c"]
+  "//implicit_settings:define_well_known (svelte_rust)" -> "//implicit_settings:well_known (svelte_rust)" [color="#0cbd5d"]
+  "//implicit_settings:windows/main_with_cfg (diligent_technician)" -> "//implicit_settings:windows/main_/main (svelte_rust)" [color="#eec668"]
+  "//implicit_settings:define_secret (diligent_technician)" -> "//implicit_settings:secret (diligent_technician)" [color="#eec668"]
+  "//implicit_settings:linux/main_/main (husky_coral)" -> "//implicit_settings:define_secret (husky_coral)" [color="#29033c"]
+  "//implicit_settings:linux/main_with_cfg (diligent_technician)" -> "//implicit_settings:linux/main_/main (husky_coral)" [color="#eec668"]
+  "//implicit_settings:define_secret (svelte_rust)" -> "//implicit_settings:secret (svelte_rust)" [color="#0cbd5d"]
+  "//implicit_settings:define_well_known (diligent_technician)" -> "//implicit_settings:well_known (diligent_technician)" [color="#eec668"]
+  "//implicit_settings:windows/main_/main (svelte_rust)" -> "//implicit_settings:define_well_known (svelte_rust)" [color="#0cbd5d"]
+  "//implicit_settings:linux/main_/main (husky_coral)" -> "//implicit_settings:define_well_known (husky_coral)" [color="#29033c"]
+  "//implicit_settings:define_well_known (husky_coral)" -> "//implicit_settings:well_known (husky_coral)" [color="#29033c"]
+  "//implicit_settings:windows/main (diligent_technician)" -> "//implicit_settings:windows/main_with_cfg (diligent_technician)" [color="#eec668"]
+  "//implicit_settings:windows/main_/main (svelte_rust)" -> "//implicit_settings:define_secret (svelte_rust)" [color="#0cbd5d"]
+}

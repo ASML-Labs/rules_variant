@@ -1,0 +1,224 @@
+# Copyright (c) 2026, ASML Netherlands B.V.
+# All rights reserved
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Set the name of the workspace.
+workspace(name = "examples")
+
+# Define a local repository for the rules_variant.
+local_repository(
+    name = "rules_variant",
+    path = "..",
+)
+
+register_execution_platforms("@rules_variant//platforms:host")
+
+load("@bazel_features//:deps.bzl", "bazel_features_deps")
+
+bazel_features_deps()
+
+# Load and call the function to setup dependencies for rules_variant.
+load("@rules_variant//variant/workspace:deps.bzl", "rules_variant_deps")
+
+rules_variant_deps()
+
+# Load functions for configuring variant repositories.
+load(
+    "@rules_variant//variant/workspace:defs.bzl",
+    "variant_maps_repository",
+    "variation_map_repository",
+)
+
+# Configure a variant repository using a global configuration.
+variation_map_repository(
+    name = "variation_map",
+    enable_variations_by_default = False,
+    variation_map = "@examples//:variant.spec.json",
+)
+
+# Define a local repository for the rules_info.
+local_repository(
+    name = "rules_info",
+    path = "bazel/3rdparty/rules_info",
+)
+
+# Load and call the function to setup dependencies for rules_info.
+load("@rules_info//info/workspace:deps.bzl", "rules_info_deps")
+
+rules_info_deps()
+
+# Setup rules_info with a global configuration.
+load("@rules_info//info/workspace:setup.bzl", "rules_info_setup")
+
+rules_info_setup(
+    variation_map_repository = "@variation_map",
+)
+
+# Define a local repository for the rules_example_cc.
+local_repository(
+    name = "rules_example_cc",
+    path = "bazel/3rdparty/rules_example_cc",
+)
+
+# Load and call the function to setup dependencies for rules_example_cc.
+load("@rules_example_cc//example_cc/workspace:deps.bzl", "rules_example_cc_deps")
+
+rules_example_cc_deps()
+
+# Setup rules_example_cc with a global configuration.
+load("@rules_example_cc//example_cc/workspace:setup.bzl", "rules_example_cc_setup")
+
+rules_example_cc_setup(
+    variation_map_repository = "@variation_map",
+)
+
+# Configure a project-specific variant repository.
+variant_maps_repository(
+    name = "goto.fail",
+    enable_variations_by_default = False,
+    rule_prototypes = [
+        {
+            "kind": {
+                "name": "cc_binary",
+                "source": "@rules_cc//cc:defs.bzl",
+            },
+            "executable": True,
+        },
+    ],
+    variation_map = "//:faulty.spec.json",
+)
+
+# Configure a variant repository for reproducing dumped configurations.
+variant_maps_repository(
+    name = "dumped.configs",
+    enable_variations_by_default = False,
+    rule_prototypes = [
+        {
+            "kind": {
+                "name": "info",
+                "source": "@rules_info//info/private:info.bzl",
+            },
+        },
+    ],
+    variation_map = "//reproducible_configuration:dumped.spec.json",
+)
+
+# Configure a variant repository for kitchen example.
+variant_maps_repository(
+    name = "rules_kitchen",
+    enable_variations_by_default = True,
+    rule_prototypes = [
+        {
+            "zero_variant_strategy": "implicit",
+            "kind": {
+                "name": "cc_binary",
+                "source": "@rules_cc//cc:defs.bzl",
+            },
+            "executable": True,
+        },
+        {
+            "zero_variant_strategy": "implicit",
+            "kind": {
+                "name": "cc_library",
+                "source": "@rules_cc//cc:defs.bzl",
+            },
+        },
+    ],
+    variation_map = "//kitchen:kitchen.spec.json",
+)
+
+# Configure a variant repository for tv_channels example.
+variant_maps_repository(
+    name = "rules_tv",
+    enable_variations_by_default = True,
+    rule_prototypes = [
+        {
+            "kind": {
+                "name": "content_provider",
+                "source": "@examples//tv_channels:defs.bzl",
+            },
+        },
+        {
+            "include_base_rule": False,
+            "kind": {
+                "name": "vgenrule",
+                "source": "@examples//tv_channels:defs.bzl",
+            },
+            "executable": True,
+        },
+        {
+            "kind": {
+                "name": "genrule",
+                "source": "native",
+            },
+            "executable": True,
+        },
+    ],
+    variation_map = "//tv_channels:variant.spec.json",
+)
+
+# Variant repository for implicit settings example
+variant_maps_repository(
+    name = "implicit_settings_variant_maps",
+    enable_variations_by_default = True,
+    extra_variation_points = ["//implicit_settings:extra.variation.json"],
+    rule_prototypes = [
+        {
+            "kind": {
+                "name": "cc_binary",
+                "source": "@rules_cc//cc:defs.bzl",
+            },
+            "executable": True,
+        },
+    ],
+    variation_map = "//implicit_settings:variant.spec.json",
+)
+
+# Variant repository for the "variable build attributes" example
+variant_maps_repository(
+    name = "variable_build_attributes_variant_maps",
+    enable_variations_by_default = True,
+    rule_prototypes = [
+        {
+            "kind": {
+                "name": "cc_binary",
+                "source": "@rules_cc//cc:defs.bzl",
+            },
+            "executable": True,
+        },
+    ],
+    variation_map = "//variable_build_attributes:variant.spec.json",
+)
+
+# Variant repository for the "target_level_overrides" example
+variant_maps_repository(
+    name = "target_level_overrides_variant_maps",
+    enable_variations_by_default = True,
+    rule_prototypes = [
+        {
+            "executable": True,
+            "kind": {
+                "name": "row",
+                "source": "@examples//target_level_overrides:defs.bzl",
+            },
+            "extra_providers": [
+                {
+                    "name": "RowInfo",
+                    "source": "@examples//target_level_overrides:defs.bzl",
+                },
+            ],
+        },
+    ],
+    variation_map = "//target_level_overrides:variant.spec.json",
+)

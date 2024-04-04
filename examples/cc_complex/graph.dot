@@ -1,0 +1,52 @@
+digraph mygraph {
+  node [shape=box];
+  "//cc_complex:wrl6x64_dev/greeting (angelic_dwelling)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:wrl6x64_dev/greeting</TD></TR></TABLE>>,fillcolor="#c6e65240",color=black,style="filled,solid"]
+  "(angelic_dwelling)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">c6e6524 (angelic_dwelling)</TD></TR></TABLE>>,fillcolor="#c6e65240",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:wrl6x64_dev/greeting (angelic_dwelling)" -> "//cc_complex:wrl6x64_dev/greeting_with_cfg (angelic_dwelling)"
+  "//cc_complex:wrl6x64_dev/greeting_with_cfg (angelic_dwelling)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:wrl6x64_dev/greeting_with_cfg</TD></TR></TABLE>>,fillcolor="#c6e65240",color=black,style="filled,solid"]
+  "(angelic_dwelling)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">c6e6524 (angelic_dwelling)</TD></TR></TABLE>>,fillcolor="#c6e65240",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:wrl6x64_dev/greeting_with_cfg (angelic_dwelling)" -> "//cc_complex:wrl6x64_dev/greeting_/greeting (self-reliant_circle)"
+  "//cc_complex:wrl6x64_dev/greeting_/greeting (self-reliant_circle)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:wrl6x64_dev/greeting_/greeting</TD></TR></TABLE>>,fillcolor="#f4375340",color=black,style="filled,solid"]
+  "(self-reliant_circle)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">f437534 (self-reliant_circle)</TD></TR></TABLE>>,fillcolor="#f4375340",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:wrl6x64_dev/greeting_/greeting (self-reliant_circle)" -> "//cc_complex:main.cc (null)"
+  "//cc_complex:wrl6x64_dev/greeting_/greeting (self-reliant_circle)" -> "//cc_complex:wrl6x64_dev/libgreeting (self-reliant_circle)"
+  "//cc_complex:wrl6x64_dev/libgreeting (self-reliant_circle)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:wrl6x64_dev/libgreeting</TD></TR></TABLE>>,fillcolor="#f4375340",color=black,style="filled,solid"]
+  "(self-reliant_circle)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">f437534 (self-reliant_circle)</TD></TR></TABLE>>,fillcolor="#f4375340",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:wrl6x64_dev/libgreeting (self-reliant_circle)" -> "//cc_complex:wrl6x64_dev/libgreeting_with_cfg (self-reliant_circle)"
+  "//cc_complex:wrl6x64_dev/libgreeting_with_cfg (self-reliant_circle)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:wrl6x64_dev/libgreeting_with_cfg</TD></TR></TABLE>>,fillcolor="#f4375340",color=black,style="filled,solid"]
+  "(self-reliant_circle)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">f437534 (self-reliant_circle)</TD></TR></TABLE>>,fillcolor="#f4375340",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:wrl6x64_dev/libgreeting_with_cfg (self-reliant_circle)" -> "//cc_complex:wrl6x64_dev/libgreeting_/libgreeting (self-reliant_circle)"
+  "//cc_complex:wrl6x64_dev/libgreeting_/libgreeting (self-reliant_circle)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:wrl6x64_dev/libgreeting_/libgreeting</TD></TR></TABLE>>,fillcolor="#f4375340",color=black,style="filled,solid"]
+  "(self-reliant_circle)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">f437534 (self-reliant_circle)</TD></TR></TABLE>>,fillcolor="#f4375340",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:wrl6x64_dev/libgreeting_/libgreeting (self-reliant_circle)" -> "//cc_complex:greeting.bye.cc (null)"
+  "//cc_complex:wrl6x64_dev/libgreeting_/libgreeting (self-reliant_circle)" -> "//cc_complex:greeting.h (null)"
+  "//cc_complex:rhel8x64_dev/greeting (angelic_dwelling)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:rhel8x64_dev/greeting</TD></TR></TABLE>>,fillcolor="#c6e65240",color=black,style="filled,solid"]
+  "(angelic_dwelling)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">c6e6524 (angelic_dwelling)</TD></TR></TABLE>>,fillcolor="#c6e65240",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:rhel8x64_dev/greeting (angelic_dwelling)" -> "//cc_complex:rhel8x64_dev/greeting_with_cfg (angelic_dwelling)"
+  "//cc_complex:rhel8x64_dev/greeting_with_cfg (angelic_dwelling)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:rhel8x64_dev/greeting_with_cfg</TD></TR></TABLE>>,fillcolor="#c6e65240",color=black,style="filled,solid"]
+  "(angelic_dwelling)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">c6e6524 (angelic_dwelling)</TD></TR></TABLE>>,fillcolor="#c6e65240",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:rhel8x64_dev/greeting_with_cfg (angelic_dwelling)" -> "//cc_complex:rhel8x64_dev/greeting_/greeting (big-hearted_mailbox)"
+  "//cc_complex:rhel8x64_dev/greeting_/greeting (big-hearted_mailbox)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:rhel8x64_dev/greeting_/greeting</TD></TR></TABLE>>,fillcolor="#157f73b0",color=black,style="filled,solid"]
+  "(big-hearted_mailbox)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">157f73b (big-hearted_mailbox)</TD></TR></TABLE>>,fillcolor="#157f73b0",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:rhel8x64_dev/greeting_/greeting (big-hearted_mailbox)" -> "//cc_complex:main.cc (null)"
+  "//cc_complex:rhel8x64_dev/greeting_/greeting (big-hearted_mailbox)" -> "//cc_complex:rhel8x64_dev/libgreeting (big-hearted_mailbox)"
+  "//cc_complex:rhel8x64_dev/libgreeting (big-hearted_mailbox)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:rhel8x64_dev/libgreeting</TD></TR></TABLE>>,fillcolor="#157f73b0",color=black,style="filled,solid"]
+  "(big-hearted_mailbox)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">157f73b (big-hearted_mailbox)</TD></TR></TABLE>>,fillcolor="#157f73b0",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:rhel8x64_dev/libgreeting (big-hearted_mailbox)" -> "//cc_complex:rhel8x64_dev/libgreeting_with_cfg (big-hearted_mailbox)"
+  "//cc_complex:rhel8x64_dev/libgreeting_with_cfg (big-hearted_mailbox)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:rhel8x64_dev/libgreeting_with_cfg</TD></TR></TABLE>>,fillcolor="#157f73b0",color=black,style="filled,solid"]
+  "(big-hearted_mailbox)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">157f73b (big-hearted_mailbox)</TD></TR></TABLE>>,fillcolor="#157f73b0",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:rhel8x64_dev/libgreeting_with_cfg (big-hearted_mailbox)" -> "//cc_complex:rhel8x64_dev/libgreeting_/libgreeting (big-hearted_mailbox)"
+  "//cc_complex:rhel8x64_dev/libgreeting_/libgreeting (big-hearted_mailbox)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:rhel8x64_dev/libgreeting_/libgreeting</TD></TR></TABLE>>,fillcolor="#157f73b0",color=black,style="filled,solid"]
+
+  "(big-hearted_mailbox)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">157f73b (big-hearted_mailbox)</TD></TR></TABLE>>,fillcolor="#157f73b0",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:rhel8x64_dev/libgreeting_/libgreeting (big-hearted_mailbox)" -> "//cc_complex:greeting.h (null)"
+  "//cc_complex:rhel8x64_dev/libgreeting_/libgreeting (big-hearted_mailbox)" -> "//cc_complex:greeting.hello.cc (null)"
+  "//cc_complex:main.cc (null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:main.cc</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid"]
+  "(null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">null (null)</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:greeting.hello.cc (null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:greeting.hello.cc</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid"]
+  "(null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">null (null)</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:greeting.h (null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:greeting.h</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid"]
+  "(null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">null (null)</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid",shape=ellipse]
+  "//cc_complex:greeting.bye.cc (null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_complex:greeting.bye.cc</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid"]
+  "(null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">null (null)</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid",shape=ellipse]
+}

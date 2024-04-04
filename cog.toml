@@ -1,0 +1,34 @@
+from_latest_tag = true
+ignore_merge_commits = false
+ignore_fixup_commits = false
+disable_changelog = false
+disable_bump_commit = false
+generate_mono_repository_global_tag = true
+generate_mono_repository_package_tags = false
+branch_whitelist = []
+pre = "alpha.*"
+skip_ci = "[skip ci]"
+skip_untracked = false
+
+pre_bump_hooks = [
+  '''sed -i -E "3s/    version = \"[0-9]+\.[0-9]+\.[0-9]+\",/    version = \"{{version}}\",/" MODULE.bazel''',
+  ".git-hooks/pre-commit.bash",
+  "bazel test //... && bazel shutdown",
+  "cd examples && ./run_tests.sh && bazel shutdown",
+]
+post_bump_hooks = []
+pre_package_bump_hooks = []
+post_package_bump_hooks = []
+
+tag_prefix="rules_variant-v"
+
+[git_hooks.pre-commit]
+path = ".git-hooks/pre-commit.bash"
+
+[commit_types]
+
+[changelog]
+path = "CHANGELOG.md"
+authors = []
+
+[bump_profiles]

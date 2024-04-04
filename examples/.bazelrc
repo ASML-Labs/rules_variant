@@ -1,0 +1,4 @@
+import %workspace%/.bazelrc.d/base.bazelrc
+
+common --flag_alias=variants=@variation_map//:variations
+common --flag_alias=broken_variants=@@goto.fail//:variations

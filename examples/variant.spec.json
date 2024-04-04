@@ -1,0 +1,79 @@
+{
+  "DEBUG": {
+    "copt": [
+      "-Denvironment=DEBUG",
+      "-Dversion=LATEST",
+      "-g",
+      "-v"
+    ],
+    "platforms": "@examples//bazel/platforms:fake_wrl18ppce6500"
+  },
+  "PROD": {
+    "copt": [
+      "-Denvironment=PROD",
+      "-Dversion=1.0FINAL2"
+    ],
+    "platforms": "@examples//bazel/platforms:fake_wrl18ppce6500"
+  },
+  "TEST": {
+    "copt": [
+      "-Denvironment=TEST",
+      "-Dversion=BETA",
+      "-O1"
+    ],
+    "platforms": "@examples//bazel/platforms:fake_wrl18ppce6500"
+  },
+  "__comments": [],
+  "rhel8x64": {
+    "compilation_mode": "opt",
+    "force_pic": "false",
+    "platform_suffix": "r8p",
+    "platforms": "@examples//bazel/platforms:fake_rhel8x64"
+  },
+  "rhel8x64_dbg": {
+    "compilation_mode": "dbg",
+    "force_pic": "false",
+    "platform_suffix": "r8g",
+    "platforms": "@examples//bazel/platforms:fake_rhel8x64"
+  },
+  "rhel8x64_dev": {
+    "compilation_mode": "fastbuild",
+    "force_pic": "false",
+    "platform_suffix": "r8d",
+    "platforms": "@examples//bazel/platforms:fake_rhel8x64"
+  },
+  "wrl18ppce6500": {
+    "compilation_mode": "opt",
+    "force_pic": "true",
+    "platform_suffix": "w18p",
+    "platforms": "@examples//bazel/platforms:fake_wrl18ppce6500"
+  },
+  "wrl18ppce6500_dbg": {
+    "compilation_mode": "dbg",
+    "platform_suffix": "w18g",
+    "platforms": "@examples//bazel/platforms:fake_wrl18ppce6500"
+  },
+  "wrl18ppce6500_dev": {
+    "compilation_mode": "fastbuild",
+    "platform_suffix": "w18d",
+    "platforms": "@examples//bazel/platforms:fake_wrl18ppce6500"
+  },
+  "wrl6x64": {
+    "compilation_mode": "opt",
+    "force_pic": "false",
+    "platform_suffix": "w6p",
+    "platforms": "@examples//bazel/platforms:fake_wrl6x64"
+  },
+  "wrl6x64_dbg": {
+    "compilation_mode": "dbg",
+    "force_pic": "false",
+    "platform_suffix": "w6g",
+    "platforms": "@examples//bazel/platforms:fake_wrl6x64"
+  },
+  "wrl6x64_dev": {
+    "compilation_mode": "fastbuild",
+    "force_pic": "false",
+    "platform_suffix": "w6d",
+    "platforms": "@examples//bazel/platforms:fake_wrl6x64"
+  }
+}

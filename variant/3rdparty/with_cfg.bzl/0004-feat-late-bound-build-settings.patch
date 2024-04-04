@@ -1,0 +1,48 @@
+From 788e2c496fe7f8d503e2c3c6fe42a75a1b932148 Mon Sep 17 00:00:00 2001
+From: Artur Stachecki <artur.stachecki@asml.com>
+Date: Fri, 24 Jan 2025 23:56:30 +0000
+Subject: [PATCH] feat: late bound build settings
+
+---
+ with_cfg/private/wrapper.bzl | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/with_cfg/private/wrapper.bzl b/with_cfg/private/wrapper.bzl
+index 208a66a..d328ac8 100644
+--- a/with_cfg/private/wrapper.bzl
++++ b/with_cfg/private/wrapper.bzl
+@@ -63,6 +63,7 @@ def _wrapper(
+         values,
+         original_settings_label,
+         attrs_to_reset):
++    build_settings = kwargs.pop("build_settings", {})
+     dirname, separator, basename = name.rpartition("/")
+     original_name = "{dirname}{separator}{basename}_/{basename}".format(
+         dirname = dirname,
+@@ -145,10 +146,22 @@ def _wrapper(
+         **(processed_kwargs | common_attrs | extra_attrs)
+     )
+ 
++    late_bound_settings = {
++        (Label(late_bound_setting) if late_bound_setting[0] in ("/", "@", ":") else late_bound_setting): late_bound_setting_value
++        for late_bound_setting, late_bound_setting_value in build_settings.items()
++    }
+     alias_attrs = {
+         validate_and_get_attr_name(setting): value
+-        for setting, value in values.items()
++        for setting, value in (
++            values |
++            {
++                late_bound_setting: late_bound_setting_value
++                for late_bound_setting, late_bound_setting_value in late_bound_settings.items()
++                if late_bound_setting in values
++            }
++        ).items()
+     }
++
+     if original_settings_label:
+         alias_attrs["internal_only_reset"] = False
+ 
+-- 
+2.45.2
+

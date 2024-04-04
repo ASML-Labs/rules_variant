@@ -1,0 +1,51 @@
+From c2764ddb0197741f379ade71bdde7678c2ce8609 Mon Sep 17 00:00:00 2001
+From: Aleksander Gondek <aleksander.gondek@asml.com>
+Date: Fri, 29 May 2026 15:11:29 +0000
+Subject: [PATCH] fix: settings encoding for transitions
+
+Ensure that the list of settings is enoded appropriately
+(previously there was implicit assumption that a list will
+only contain encodable values).
+---
+ with_cfg/private/transition.bzl | 19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
+
+diff --git a/with_cfg/private/transition.bzl b/with_cfg/private/transition.bzl
+index 932a89d..5cd36f7 100644
+--- a/with_cfg/private/transition.bzl
++++ b/with_cfg/private/transition.bzl
+@@ -100,17 +100,26 @@ def _get_settings_key(setting):
+     else:
+         fail("Expected Label or string, got: {} ({})".format(setting, type(setting)))
+ 
+-_STARLARK_TYPES = {
+-    type(t): None
+-    for t in [True, "", 0, 0.0, []]
+-}
++def _encode_val(v):
++    _STARLARK_CASTS = {
++        type(True): lambda v: v,
++        type(""): lambda v: v,
++        type(0): lambda v: v,
++        type(0.0): lambda v: v,
++        type([]): lambda v: [
++            _STARLARK_CASTS.get(type(vv), lambda x: str(x))(vv)
++            for vv in v
++        ],
++    }
++    cast = _STARLARK_CASTS.get(type(v), lambda v: str(v))
++    return cast(v)
+ 
+ def _encode_settings(settings):
+     # Certain setting values supplied by Bazel are special StarlarkValue types and thus unsupported
+     # by json.encode. We work around this by converting everything that isn't a native Starlark type
+     # to a string.
+     fixed_settings = {
+-        k: v if type(v) in _STARLARK_TYPES else str(v)
++        k: _encode_val(v)
+         for k, v in settings.items()
+     }
+     return json.encode(fixed_settings)
+-- 
+2.49.0
+

@@ -1,0 +1,40 @@
+digraph mygraph {
+  node [shape=box];
+  rankdir = LR;
+  "(rotating_shade)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">9af9432 (rotating_shade)</TD></TR></TABLE>>,fillcolor="#9af94320",color=black,style="filled,solid",shape=ellipse]
+  "(hideous_liar)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">33bc339 (hideous_liar)</TD></TR></TABLE>>,fillcolor="#33bc3390",color=black,style="filled,solid",shape=ellipse]
+  "(unwilling_con)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">22acd1a (unwilling_con)</TD></TR></TABLE>>,fillcolor="#22acd1a0",color=black,style="filled,solid",shape=ellipse]
+  "(homely_vendor)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">d02c218 (homely_vendor)</TD></TR></TABLE>>,fillcolor="#d02c2180",color=black,style="filled,solid",shape=ellipse]
+  "(concerned_pianist)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">a44111f (concerned_pianist)</TD></TR></TABLE>>,fillcolor="#a44111f0",color=black,style="filled,solid",shape=ellipse]
+
+  "//print_info:wrl6x64_dbg/triple (homely_vendor)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl6x64_dbg/triple</TD></TR></TABLE>>,fillcolor="#d02c2180",color=black,style="filled,solid"]
+  "//print_info:wrl6x64_dbg/triple (homely_vendor)" -> "//print_info:wrl6x64_dbg/triple_with_cfg (hideous_liar)"
+  "//print_info:wrl6x64_dbg/triple_with_cfg (hideous_liar)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl6x64_dbg/triple_with_cfg</TD></TR></TABLE>>,fillcolor="#33bc3390",color=black,style="filled,solid"]
+  "//print_info:wrl6x64_dbg/triple_with_cfg (hideous_liar)" -> "//print_info:wrl6x64_dbg/triple_/triple (unwilling_con)"
+  "//print_info:wrl6x64_dbg/triple_/triple (unwilling_con)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl6x64_dbg/triple_/triple</TD></TR></TABLE>>,fillcolor="#22acd1a0",color=black,style="filled,solid"]
+  "//print_info:wrl6x64_dbg/single (homely_vendor)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl6x64_dbg/single</TD></TR></TABLE>>,fillcolor="#d02c2180",color=black,style="filled,solid"]
+  "//print_info:wrl6x64_dbg/single (homely_vendor)" -> "//print_info:wrl6x64_dbg/single_with_cfg (hideous_liar)"
+  "//print_info:wrl6x64_dbg/single_with_cfg (hideous_liar)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl6x64_dbg/single_with_cfg</TD></TR></TABLE>>,fillcolor="#33bc3390",color=black,style="filled,solid"]
+  "//print_info:wrl6x64_dbg/single_with_cfg (hideous_liar)" -> "//print_info:wrl6x64_dbg/single_/single (unwilling_con)"
+  "//print_info:wrl6x64_dbg/single_/single (unwilling_con)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl6x64_dbg/single_/single</TD></TR></TABLE>>,fillcolor="#22acd1a0",color=black,style="filled,solid"]
+  "//print_info:wrl6x64_dbg/double (homely_vendor)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl6x64_dbg/double</TD></TR></TABLE>>,fillcolor="#d02c2180",color=black,style="filled,solid"]
+  "//print_info:wrl6x64_dbg/double (homely_vendor)" -> "//print_info:wrl6x64_dbg/double_with_cfg (hideous_liar)"
+  "//print_info:wrl6x64_dbg/double_with_cfg (hideous_liar)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl6x64_dbg/double_with_cfg</TD></TR></TABLE>>,fillcolor="#33bc3390",color=black,style="filled,solid"]
+  "//print_info:wrl6x64_dbg/double_with_cfg (hideous_liar)" -> "//print_info:wrl6x64_dbg/double_/double (unwilling_con)"
+  "//print_info:wrl6x64_dbg/double_/double (unwilling_con)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl6x64_dbg/double_/double</TD></TR></TABLE>>,fillcolor="#22acd1a0",color=black,style="filled,solid"]
+  "//print_info:wrl18ppce6500_dev/triple (homely_vendor)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl18ppce6500_dev/triple</TD></TR></TABLE>>,fillcolor="#d02c2180",color=black,style="filled,solid"]
+  "//print_info:wrl18ppce6500_dev/triple (homely_vendor)" -> "//print_info:wrl18ppce6500_dev/triple_with_cfg (hideous_liar)"
+  "//print_info:wrl18ppce6500_dev/triple_with_cfg (hideous_liar)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl18ppce6500_dev/triple_with_cfg</TD></TR></TABLE>>,fillcolor="#33bc3390",color=black,style="filled,solid"]
+  "//print_info:wrl18ppce6500_dev/triple_with_cfg (hideous_liar)" -> "//print_info:wrl18ppce6500_dev/triple_/triple (concerned_pianist)"
+  "//print_info:wrl18ppce6500_dev/triple_/triple (concerned_pianist)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl18ppce6500_dev/triple_/triple</TD></TR></TABLE>>,fillcolor="#a44111f0",color=black,style="filled,solid"]
+  "//print_info:wrl18ppce6500_dev/double (homely_vendor)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl18ppce6500_dev/double</TD></TR></TABLE>>,fillcolor="#d02c2180",color=black,style="filled,solid"]
+  "//print_info:wrl18ppce6500_dev/double (homely_vendor)" -> "//print_info:wrl18ppce6500_dev/double_with_cfg (hideous_liar)"
+  "//print_info:wrl18ppce6500_dev/double_with_cfg (hideous_liar)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl18ppce6500_dev/double_with_cfg</TD></TR></TABLE>>,fillcolor="#33bc3390",color=black,style="filled,solid"]
+  "//print_info:wrl18ppce6500_dev/double_with_cfg (hideous_liar)" -> "//print_info:wrl18ppce6500_dev/double_/double (concerned_pianist)"
+  "//print_info:wrl18ppce6500_dev/double_/double (concerned_pianist)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:wrl18ppce6500_dev/double_/double</TD></TR></TABLE>>,fillcolor="#a44111f0",color=black,style="filled,solid"]
+  "//print_info:rhel8x64/triple (homely_vendor)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:rhel8x64/triple</TD></TR></TABLE>>,fillcolor="#d02c2180",color=black,style="filled,solid"]
+  "//print_info:rhel8x64/triple (homely_vendor)" -> "//print_info:rhel8x64/triple_with_cfg (hideous_liar)"
+  "//print_info:rhel8x64/triple_with_cfg (hideous_liar)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:rhel8x64/triple_with_cfg</TD></TR></TABLE>>,fillcolor="#33bc3390",color=black,style="filled,solid"]
+  "//print_info:rhel8x64/triple_with_cfg (hideous_liar)" -> "//print_info:rhel8x64/triple_/triple (rotating_shade)"
+  "//print_info:rhel8x64/triple_/triple (rotating_shade)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//print_info:rhel8x64/triple_/triple</TD></TR></TABLE>>,fillcolor="#9af94320",color=black,style="filled,solid"]
+}

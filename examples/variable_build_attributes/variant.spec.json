@@ -1,0 +1,9 @@
+{
+  "__comments": [],
+  "rhel10x64": {
+    "platforms": "@examples//bazel/platforms:fake_rhel10x64"
+  },
+  "rhel8x64": {
+    "platforms": "@examples//bazel/platforms:fake_rhel8x64"
+  }
+}

@@ -1,0 +1,112 @@
+# Copyright (c) 2026, ASML Netherlands B.V.
+# All rights reserved
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+_base = """
+load(
+    "@rules_variant//variant:defs.bzl",
+    "variant_builder",
+    "derivation_builder",
+)
+"""
+
+_load__config = """
+load(
+  "{variation_map_repository}//:defs.bzl",
+  "variation_map",
+  "pre_transition_binding_map",
+  "post_transition_binding_map",
+)
+"""
+
+_load__symbol = """
+load("{source}", _{name} = "{name}")
+"""
+
+_rule__native_alias = """
+_{rule_name} = native.{rule_name}
+"""
+
+_rule__re_export = """
+{rule_name} = _{rule_name}
+"""
+
+_builder__variant = """
+_variant = variant_builder(variation_map)
+"""
+
+_rule__variant_map = """
+{rule_name}_variant_map = {{
+    "base": struct(
+      rule = _{rule_name},
+      pre_transition_binding_condition = post_transition_binding_map["base"],
+    )
+}}
+{rule_name}_providers = list()
+"""
+
+_rule__providers = """
+{rule_name}_providers.append(_{provider})
+"""
+
+_rule__variant = """
+(
+    {rule_name}_{variation_name},
+    {rule_name}_{variation_name}_reset,
+    {rule_name}_{variation_name}_override,
+) = _variant(
+  rule_prototype = {{
+      "kind": _{rule_name},
+      "executable": {executable},
+      "implicit_targets": {implicit_targets},
+      "extra_providers": {rule_name}_providers,
+      "reset_on_attrs": {reset_on_attrs},
+  }},
+  original_settings_target = "{original_settings_target}",
+  variation_name = "{variation_name}",
+)
+{rule_name}_variant_map["{variation_name}"] = struct(
+  rule = {rule_name}_{variation_name},
+  reset_rule = {rule_name}_{variation_name}_reset,
+  override_rule = {rule_name}_{variation_name}_override,
+  pre_transition_binding_condition = pre_transition_binding_map["{variation_name}"],
+)
+"""
+
+_builder__derivation = """
+{rule_name} = derivation_builder(
+  variant_map = {rule_name}_variant_map,
+  zero_variant_strategy = "{zero_variant_strategy}",
+  include_base_rule = {include_base_rule},
+  variation_map = variation_map,
+)
+"""
+
+_export__config = """
+variations = post_transition_binding_map
+"""
+
+parts = struct(
+    base = _base,
+    builder__derivation = _builder__derivation,
+    builder__variant = _builder__variant,
+    export__config = _export__config,
+    load__config = _load__config,
+    load__symbol = _load__symbol,
+    rule__native_alias = _rule__native_alias,
+    rule__re_export = _rule__re_export,
+    rule__providers = _rule__providers,
+    rule__variant = _rule__variant,
+    rule__variant_map = _rule__variant_map,
+)

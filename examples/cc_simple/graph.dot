@@ -1,0 +1,41 @@
+digraph mygraph {
+  node [shape=box];
+  "//cc_simple:combined (flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_simple:combined</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid"]
+  "(flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">db01af3 (flustered_foundation)</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid",shape=ellipse]
+  "//cc_simple:combined (flustered_foundation)" -> "//cc_simple:rhel8x64/main (flustered_foundation)"
+  "//cc_simple:combined (flustered_foundation)" -> "//cc_simple:wrl18ppce6500/main (flustered_foundation)"
+  "//cc_simple:combined (flustered_foundation)" -> "//cc_simple:wrl6x64/main (flustered_foundation)"
+  "//cc_simple:wrl6x64/main (flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_simple:wrl6x64/main</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid"]
+  "(flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">db01af3 (flustered_foundation)</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid",shape=ellipse]
+  "//cc_simple:wrl6x64/main (flustered_foundation)" -> "//cc_simple:wrl6x64/main_with_cfg (flustered_foundation)"
+  "//cc_simple:wrl6x64/main_with_cfg (flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_simple:wrl6x64/main_with_cfg</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid"]
+  "(flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">db01af3 (flustered_foundation)</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid",shape=ellipse]
+  "//cc_simple:wrl6x64/main_with_cfg (flustered_foundation)" -> "//cc_simple:wrl6x64/main_/main (enraged_hubris)"
+  "//cc_simple:wrl6x64/main_/main (enraged_hubris)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_simple:wrl6x64/main_/main</TD></TR></TABLE>>,fillcolor="#5acfff20",color=black,style="filled,solid"]
+  "(enraged_hubris)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">5acfff2 (enraged_hubris)</TD></TR></TABLE>>,fillcolor="#5acfff20",color=black,style="filled,solid",shape=ellipse]
+  "//cc_simple:wrl6x64/main_/main (enraged_hubris)" -> "//cc_simple:bye-world.cc (null)"
+  "//cc_simple:wrl18ppce6500/main (flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_simple:wrl18ppce6500/main</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid"]
+  "(flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">db01af3 (flustered_foundation)</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid",shape=ellipse]
+  "//cc_simple:wrl18ppce6500/main (flustered_foundation)" -> "//cc_simple:wrl18ppce6500/main_with_cfg (flustered_foundation)"
+  "//cc_simple:wrl18ppce6500/main_with_cfg (flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_simple:wrl18ppce6500/main_with_cfg</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid"]
+  "(flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">db01af3 (flustered_foundation)</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid",shape=ellipse]
+  "//cc_simple:wrl18ppce6500/main_with_cfg (flustered_foundation)" -> "//cc_simple:wrl18ppce6500/main_/main (paltry_party)"
+  "//cc_simple:wrl18ppce6500/main_/main (paltry_party)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_simple:wrl18ppce6500/main_/main</TD></TR></TABLE>>,fillcolor="#e7b53340",color=black,style="filled,solid"]
+  "(paltry_party)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">e7b5334 (paltry_party)</TD></TR></TABLE>>,fillcolor="#e7b53340",color=black,style="filled,solid",shape=ellipse]
+  "//cc_simple:wrl18ppce6500/main_/main (paltry_party)" -> "//cc_simple:hey-world.cc (null)"
+  "//cc_simple:hey-world.cc (null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_simple:hey-world.cc</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid"]
+  "(null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">null (null)</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid",shape=ellipse]
+  "//cc_simple:rhel8x64/main (flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_simple:rhel8x64/main</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid"]
+  "(flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">db01af3 (flustered_foundation)</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid",shape=ellipse]
+  "//cc_simple:rhel8x64/main (flustered_foundation)" -> "//cc_simple:rhel8x64/main_with_cfg (flustered_foundation)"
+  "//cc_simple:rhel8x64/main_with_cfg (flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_simple:rhel8x64/main_with_cfg</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid"]
+  "(flustered_foundation)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">db01af3 (flustered_foundation)</TD></TR></TABLE>>,fillcolor="#db01af30",color=black,style="filled,solid",shape=ellipse]
+  "//cc_simple:rhel8x64/main_with_cfg (flustered_foundation)" -> "//cc_simple:rhel8x64/main_/main (fumbling_mankind)"
+  "//cc_simple:rhel8x64/main_/main (fumbling_mankind)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_simple:rhel8x64/main_/main</TD></TR></TABLE>>,fillcolor="#9cf19a80",color=black,style="filled,solid"]
+  "(fumbling_mankind)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">9cf19a8 (fumbling_mankind)</TD></TR></TABLE>>,fillcolor="#9cf19a80",color=black,style="filled,solid",shape=ellipse]
+  "//cc_simple:rhel8x64/main_/main (fumbling_mankind)" -> "//cc_simple:hello-world.cc (null)"
+  "//cc_simple:hello-world.cc (null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_simple:hello-world.cc</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid"]
+  "(null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">null (null)</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid",shape=ellipse]
+  "//cc_simple:bye-world.cc (null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//cc_simple:bye-world.cc</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid"]
+  "(null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">null (null)</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid",shape=ellipse]
+}

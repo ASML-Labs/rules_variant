@@ -1,0 +1,12 @@
+{
+  "rhel8x64_broken": {
+    "compilation_mode": "dbg",
+    "platform_suffix": "r8b",
+    "platforms": "@examples//bazel/platforms:broken_rhel8x64"
+  },
+  "wrl6x64_broken": {
+    "compilation_mode": "dbg",
+    "platform_suffix": "w6b",
+    "platforms": "@examples//bazel/platforms:broken_wrl6x64"
+  }
+}

@@ -1,0 +1,11 @@
+rules_variant
+Copyright (c) 2026, ASML Netherlands B.V.
+
+This product includes software developed at
+The Apache Software Foundation (http://www.apache.org/).
+
+Portions of this software make use of code developed by
+The Android Open Source Project (android/platform/build/bazel).
+
+This software contains code derived from Fabian Meumertzheim
+(@fmeum) with_cfg.bzl ruleset (patches its behavior).

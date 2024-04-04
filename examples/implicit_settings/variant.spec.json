@@ -1,0 +1,11 @@
+{
+  "__comments": [],
+  "linux": {
+    "@examples//implicit_settings:well_known": "red",
+    "platforms": "@examples//bazel/platforms:fake_rhel8x64"
+  },
+  "windows": {
+    "@examples//implicit_settings:well_known": "blue",
+    "platforms": "@examples//bazel/platforms:fake_rhel8x64"
+  }
+}

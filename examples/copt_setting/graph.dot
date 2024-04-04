@@ -1,0 +1,32 @@
+digraph mygraph {
+  node [shape=box];
+  "//copt_setting:TEST/main (well-documented_grove)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//copt_setting:TEST/main</TD></TR></TABLE>>,fillcolor="#6672b190",color=black,style="filled,solid"]
+  "(well-documented_grove)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">6672b19 (well-documented_grove)</TD></TR></TABLE>>,fillcolor="#6672b190",color=black,style="filled,solid",shape=ellipse]
+  "//copt_setting:TEST/main (well-documented_grove)" -> "//copt_setting:TEST/main_with_cfg (well-documented_grove)"
+  "//copt_setting:TEST/main_with_cfg (well-documented_grove)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//copt_setting:TEST/main_with_cfg</TD></TR></TABLE>>,fillcolor="#6672b190",color=black,style="filled,solid"]
+  "(well-documented_grove)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">6672b19 (well-documented_grove)</TD></TR></TABLE>>,fillcolor="#6672b190",color=black,style="filled,solid",shape=ellipse]
+  "//copt_setting:TEST/main_with_cfg (well-documented_grove)" -> "//copt_setting:TEST/main_/main (unacceptable_mid-course)"
+  "//copt_setting:TEST/main_/main (unacceptable_mid-course)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//copt_setting:TEST/main_/main</TD></TR></TABLE>>,fillcolor="#66dd3800",color=black,style="filled,solid"]
+  "(unacceptable_mid-course)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">66dd380 (unacceptable_mid-course)</TD></TR></TABLE>>,fillcolor="#66dd3800",color=black,style="filled,solid",shape=ellipse]
+  "//copt_setting:TEST/main_/main (unacceptable_mid-course)" -> "//copt_setting:main.c (null)"
+  "//copt_setting:PROD/main (well-documented_grove)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//copt_setting:PROD/main</TD></TR></TABLE>>,fillcolor="#6672b190",color=black,style="filled,solid"]
+  "(well-documented_grove)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">6672b19 (well-documented_grove)</TD></TR></TABLE>>,fillcolor="#6672b190",color=black,style="filled,solid",shape=ellipse]
+  "//copt_setting:PROD/main (well-documented_grove)" -> "//copt_setting:PROD/main_with_cfg (well-documented_grove)"
+  "//copt_setting:PROD/main_with_cfg (well-documented_grove)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//copt_setting:PROD/main_with_cfg</TD></TR></TABLE>>,fillcolor="#6672b190",color=black,style="filled,solid"]
+  "(well-documented_grove)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">6672b19 (well-documented_grove)</TD></TR></TABLE>>,fillcolor="#6672b190",color=black,style="filled,solid",shape=ellipse]
+  "//copt_setting:PROD/main_with_cfg (well-documented_grove)" -> "//copt_setting:PROD/main_/main (discrete_bench)"
+  "//copt_setting:PROD/main_/main (discrete_bench)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//copt_setting:PROD/main_/main</TD></TR></TABLE>>,fillcolor="#f8d56460",color=black,style="filled,solid"]
+  "(discrete_bench)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">f8d5646 (discrete_bench)</TD></TR></TABLE>>,fillcolor="#f8d56460",color=black,style="filled,solid",shape=ellipse]
+  "//copt_setting:PROD/main_/main (discrete_bench)" -> "//copt_setting:main.c (null)"
+  "//copt_setting:DEBUG/main (well-documented_grove)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//copt_setting:DEBUG/main</TD></TR></TABLE>>,fillcolor="#6672b190",color=black,style="filled,solid"]
+  "(well-documented_grove)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">6672b19 (well-documented_grove)</TD></TR></TABLE>>,fillcolor="#6672b190",color=black,style="filled,solid",shape=ellipse]
+  "//copt_setting:DEBUG/main (well-documented_grove)" -> "//copt_setting:DEBUG/main_with_cfg (well-documented_grove)"
+  "//copt_setting:DEBUG/main_with_cfg (well-documented_grove)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//copt_setting:DEBUG/main_with_cfg</TD></TR></TABLE>>,fillcolor="#6672b190",color=black,style="filled,solid"]
+  "(well-documented_grove)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">6672b19 (well-documented_grove)</TD></TR></TABLE>>,fillcolor="#6672b190",color=black,style="filled,solid",shape=ellipse]
+  "//copt_setting:DEBUG/main_with_cfg (well-documented_grove)" -> "//copt_setting:DEBUG/main_/main (real_nucleotide)"
+  "//copt_setting:DEBUG/main_/main (real_nucleotide)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//copt_setting:DEBUG/main_/main</TD></TR></TABLE>>,fillcolor="#dc5b70d0",color=black,style="filled,solid"]
+  "(real_nucleotide)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">dc5b70d (real_nucleotide)</TD></TR></TABLE>>,fillcolor="#dc5b70d0",color=black,style="filled,solid",shape=ellipse]
+  "//copt_setting:DEBUG/main_/main (real_nucleotide)" -> "//copt_setting:main.c (null)"
+  "//copt_setting:main.c (null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//copt_setting:main.c</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid"]
+  "(null)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">null (null)</TD></TR></TABLE>>,fillcolor="#null0",color=black,style="filled,solid",shape=ellipse]
+}

@@ -1,0 +1,174 @@
+# Copyright (c) 2026, ASML Netherlands B.V.
+# All rights reserved
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+load(
+    "@bazel_skylib//rules:common_settings.bzl",
+    column = "string_flag",
+)
+load(
+    "@target_level_overrides_variant_maps//:rules.bzl",
+    "row",
+    "variations",
+)
+
+column(
+    name = "column_1",
+    build_setting_default = "undefined",
+    values = [
+        "black",
+        "red",
+        "undefined",
+    ],
+)
+
+column(
+    name = "column_2",
+    build_setting_default = "undefined",
+    values = [
+        "black",
+        "red",
+        "undefined",
+    ],
+)
+
+#### standard scenario ####
+row(
+    name = "row_1",
+    columns = [
+        ":column_1",
+        ":column_2",
+    ],
+)
+
+row(
+    name = "row_2",
+    columns = [
+        ":column_1",
+        ":column_2",
+    ],
+    variations = [
+        "black",
+        "red",
+    ],
+    deps = [":row_1"],
+)
+
+### global override with propagation
+row(
+    name = "row_3.global_override.propagating",
+    build_settings = {
+        "@examples//target_level_overrides:column_1": "black",
+    },
+    columns = [
+        ":column_1",
+        ":column_2",
+    ],
+    variations = [
+        "black",
+        "red",
+    ],
+    deps = [":row_2"],
+)
+
+### per-variant overrides with propagation
+row(
+    name = "row_3.variant_override.propagating",
+    columns = [
+        ":column_1",
+        ":column_2",
+    ],
+    variant_args = {
+        "black": {
+            "build_settings": {
+                "@examples//target_level_overrides:column_1": "red",
+            },
+        },
+        "red": {
+            "build_settings": {
+                "@examples//target_level_overrides:column_1": "black",
+            },
+        },
+    },
+    variations = [
+        "black",
+        "red",
+    ],
+    deps = [":row_2"],
+)
+
+### global override without propagation ###
+row(
+    name = "row_1.global_override.no_propagating",
+    build_settings = {
+        "@examples//target_level_overrides:column_1": "red",
+        "@examples//target_level_overrides:column_2": "black",
+    },
+    is_override_rule = True,
+    variations = [
+        "black",
+        "red",
+    ],
+    exports = ":row_1",
+)
+
+### per-variant override without propagation ###
+row(
+    name = "row_1.variant_override.no_propagating",
+    is_override_rule = True,
+    variant_args = {
+        "black": {
+            "build_settings": {
+                "@examples//target_level_overrides:column_1": "red",
+            },
+        },
+        "red": {
+            "build_settings": {
+                "@examples//target_level_overrides:column_1": "black",
+            },
+        },
+    },
+    variations = [
+        "black",
+        "red",
+    ],
+    exports = ":row_1",
+)
+
+row(
+    name = "row_2.overriden_deps",
+    columns = [
+        ":column_1",
+        ":column_2",
+    ],
+    variations = [
+        "black",
+        "red",
+    ],
+    deps = [
+        ":row_1",
+    ] + select(
+        {
+            variations["black"]: [
+                ":black/row_1.global_override.no_propagating",
+                ":black/row_1.variant_override.no_propagating",
+            ],
+            variations["red"]: [
+                ":red/row_1.global_override.no_propagating",
+                ":red/row_1.variant_override.no_propagating",
+            ],
+            "//conditions:default": [],
+        },
+    ),
+)

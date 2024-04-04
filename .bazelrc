@@ -1,0 +1,8 @@
+import %workspace%/.bazelrc.d/base.bazelrc
+
+common --platforms=@rules_variant//platforms:host
+
+# Ensure the protobuf is prefereing the prebuilts
+common --incompatible_enable_proto_toolchain_resolution
+common --@protobuf//bazel/toolchains:prefer_prebuilt_protoc=true
+common --@protobuf//bazel/flags:prefer_prebuilt_protoc=true

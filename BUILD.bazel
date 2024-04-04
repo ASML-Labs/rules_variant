@@ -1,0 +1,99 @@
+# Copyright (c) 2026, ASML Netherlands B.V.
+# All rights reserved
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+load(
+    "@bazel_gazelle//:def.bzl",
+    "DEFAULT_LANGUAGES",
+    "gazelle",
+    "gazelle_binary",
+)
+load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
+load(
+    "@cgrindel_bazel_starlib//bzlformat:defs.bzl",
+    "bzlformat_missing_pkgs",
+    "bzlformat_pkg",
+)
+load("@cgrindel_bazel_starlib//bzltidy:defs.bzl", "tidy")
+load("@cgrindel_bazel_starlib//shlib/rules:execute_binary.bzl", "execute_binary")
+load(
+    "@cgrindel_bazel_starlib//updatesrc:defs.bzl",
+    "updatesrc_update_all",
+)
+
+# MARK: - Gazelle
+
+gazelle(
+    name = "gazelle",
+    gazelle = ":gazelle_bin",
+)
+
+gazelle_binary(
+    name = "gazelle_bin",
+    languages = DEFAULT_LANGUAGES + [
+        "@bazel_skylib_gazelle_plugin//bzl",
+    ],
+)
+
+execute_binary(
+    name = "gazelle.fix",
+    arguments = ["fix"],
+    binary = ":gazelle_bin",
+    execute_in_workspace = True,
+)
+
+# MARK: - Bazel Starlark Lint and Formatting
+
+bzlformat_pkg(name = "bzlformat")
+
+bzlformat_missing_pkgs(
+    name = "bzlformat_missing_pkgs",
+    exclude = [
+        "//platforms",
+        ":sub_workspace_packages",
+    ],
+)
+
+# MARK: - Update Source Files
+
+# Define a runnable target to execute all of the updatesrc_update targets
+# that are defined in your workspace.
+updatesrc_update_all(
+    name = "update_all",
+    targets_to_run = [
+        # Fix the Bazel packages when we update our source files from build outputs.
+        ":bzlformat_missing_pkgs_fix",
+    ],
+)
+
+tidy(
+    name = "tidy",
+    targets = [
+        "@rules_bazel_integration_test//tools:remove_child_wksp_bazel_symlinks",
+        "@rules_bazel_integration_test//tools:update_deleted_packages",
+        ":update_all",
+        "//:gazelle.fix",
+        "//docs:update",
+    ],
+)
+
+bzl_library(
+    name = "internal_deps",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@bazel_tools//tools/build_defs/repo:cache.bzl",
+        "@bazel_tools//tools/build_defs/repo:http.bzl",
+        "@bazel_tools//tools/build_defs/repo:utils.bzl",
+    ],
+)

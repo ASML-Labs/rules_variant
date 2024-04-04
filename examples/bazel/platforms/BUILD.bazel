@@ -1,0 +1,201 @@
+# Copyright (c) 2026, ASML Netherlands B.V.
+# All rights reserved
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Define constraint settings for the host type.
+constraint_setting(name = "host_type")
+
+# Define possible values for the host type.
+constraint_value(
+    name = "dedicated",
+    constraint_setting = ":host_type",
+)
+
+constraint_value(
+    name = "broken",
+    constraint_setting = ":host_type",
+)
+
+constraint_value(
+    name = "generic",
+    constraint_setting = ":host_type",
+)
+
+# Define constraint settings for the operating system vendor.
+constraint_setting(name = "os_vendor")
+
+# Define possible values for the OS vendor.
+constraint_value(
+    name = "rhel",
+    constraint_setting = ":os_vendor",
+)
+
+constraint_value(
+    name = "wrl",
+    constraint_setting = ":os_vendor",
+)
+
+# Define constraint settings for the operating system version.
+constraint_setting(name = "os_version")
+
+# Define possible values for the OS version.
+constraint_value(
+    name = "6",
+    constraint_setting = ":os_version",
+)
+
+constraint_value(
+    name = "8",
+    constraint_setting = ":os_version",
+)
+
+constraint_value(
+    name = "10",
+    constraint_setting = ":os_version",
+)
+
+constraint_value(
+    name = "18",
+    constraint_setting = ":os_version",
+)
+
+# Define constraint settings for the CPU instruction set architecture.
+constraint_setting(name = "cpu_isa")
+
+# Define possible values for the CPU ISA.
+constraint_value(
+    name = "x86",
+    constraint_setting = ":cpu_isa",
+)
+
+constraint_value(
+    name = "ppc",
+    constraint_setting = ":cpu_isa",
+)
+
+# Define constraint settings for the CPU bitness (32-bit or 64-bit).
+constraint_setting(name = "cpu_is")
+
+# Define possible values for the CPU bitness.
+constraint_value(
+    name = "32",
+    constraint_setting = ":cpu_is",
+)
+
+constraint_value(
+    name = "64",
+    constraint_setting = ":cpu_is",
+)
+
+# Define constraint settings for the CPU configuration.
+constraint_setting(name = "cpu_config")
+
+# Define possible values for the CPU configuration.
+constraint_value(
+    name = "smp",
+    constraint_setting = ":cpu_config",
+)
+
+constraint_value(
+    name = "mc",
+    constraint_setting = ":cpu_config",
+)
+
+constraint_value(
+    name = "spe",
+    constraint_setting = ":cpu_config",
+)
+
+# Define constraint settings for the CPU core type.
+constraint_setting(name = "cpu_core")
+
+# Define possible values for the CPU core type.
+constraint_value(
+    name = "e6500",
+    constraint_setting = ":cpu_core",
+)
+
+# Define custom platforms with a combination of the above constraints.
+# Each platform is tailored for specific hardware and software configurations.
+
+# Platform for a dedicated RHEL 8 x86_64 environment.
+platform(
+    name = "fake_rhel8x64",
+    constraint_values = [
+        "@platforms//os:linux",
+        "@platforms//cpu:x86_64",
+        ":dedicated",
+        ":rhel",
+        ":8",
+        ":x86",
+        ":64",
+    ],
+)
+
+# Platform for a dedicated RHEL 10 x86_64 environment.
+platform(
+    name = "fake_rhel10x64",
+    constraint_values = [
+        "@platforms//os:linux",
+        "@platforms//cpu:x86_64",
+        ":dedicated",
+        ":rhel",
+        ":10",
+        ":x86",
+        ":64",
+    ],
+)
+
+# Platform for a dedicated Wind River Linux 6 x86_64 environment.
+platform(
+    name = "fake_wrl6x64",
+    constraint_values = [
+        ":dedicated",
+        ":wrl",
+        ":6",
+        ":x86",
+        ":64",
+    ],
+    parents = ["@local_config_platform//:host"],
+)
+
+# Platform for a dedicated Wind River Linux 18 PPC e6500 environment.
+platform(
+    name = "fake_wrl18ppce6500",
+    constraint_values = [
+        ":dedicated",
+        ":wrl",
+        ":18",
+        ":ppc",
+        ":64",
+        ":e6500",
+    ],
+    parents = ["@local_config_platform//:host"],
+)
+
+# Platform for a broken RHEL 8 x86_64 environment.
+platform(
+    name = "broken_rhel8x64",
+    constraint_values = [
+        ":broken",
+    ],
+)
+
+# Platform for a broken Wind River Linux 6 x86_64 environment.
+platform(
+    name = "broken_wrl6x64",
+    constraint_values = [
+        ":broken",
+    ],
+)

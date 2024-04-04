@@ -1,0 +1,75 @@
+# Copyright (c) 2026, ASML Netherlands B.V.
+# All rights reserved
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Load the cc_binary, cc_library rules, and variations from the rules_example_cc repository.
+# These are essential for defining C++ binary and library targets, and for accessing build configuration settings.
+load(
+    "@rules_example_cc//example_cc:defs.bzl",
+    "cc_binary",
+    "cc_library",
+    "variations",
+)
+
+# Define a cc_library target named 'libgreeting'. This target compiles a C++ library from source files
+# that are conditionally included based on the current build configuration, demonstrating the use of
+# cross-variant dependencies and explicit transitions between configurations.
+cc_library(
+    name = "libgreeting",
+    # Use the 'select' function to conditionally include source files based on the build configuration.
+    # The 'variations' variable provides access to predefined configuration flags.
+    srcs = select(
+        {
+            variations["rhel8x64_dev"]: [
+                "greeting.hello.cc",  # Source file for builds targeting the RHEL 8 x86_64 development platform.
+            ],
+            variations["wrl6x64_dev"]: [
+                "greeting.bye.cc",  # Source file for builds targeting the WRL 6 x86_64 development platform.
+            ],
+            "//conditions:default": [],  # Fallback condition with no source files.
+        },
+    ),
+    hdrs = ["greeting.h"],  # Specifies the header file included in the library.
+    # Specify the build configurations (platforms) for which this library can be built.
+    # These should correspond to the keys used in the 'srcs' select statement.
+    variations = [
+        "rhel8x64_dev",
+        "wrl6x64_dev",
+    ],
+)
+
+# Define a cc_binary target named 'greeting'. This target compiles a C++ binary that depends on
+# the 'libgreeting' library defined above. It showcases how to manage dependencies with explicit
+# configuration transitions, ensuring the correct variant of the library is linked based on the build configuration.
+cc_binary(
+    name = "greeting",
+    srcs = ["main.cc"],  # Main source file for the binary.
+    # Specify the build configurations (platforms) for which this binary can be built.
+    variations = [
+        "rhel8x64_dev",
+        "wrl6x64_dev",
+    ],
+    # Use the 'select' function to specify dependencies conditionally based on the build configuration.
+    deps = select(
+        {
+            variations["rhel8x64_dev"]: [
+                ":rhel8x64_dev/libgreeting",  # Dependency on 'libgreeting' for the RHEL 8 x86_64 development configuration.
+            ],
+            variations["wrl6x64_dev"]: [
+                ":wrl6x64_dev/libgreeting",  # Dependency on 'libgreeting' for the WRL 6 x86_64 development configuration.
+            ],
+            "//conditions:default": [],  # Fallback condition with no dependencies.
+        },
+    ),
+)

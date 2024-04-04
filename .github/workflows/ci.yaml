@@ -1,0 +1,42 @@
+name: "ci"
+run-name: "Test commit ${{ github.sha }}"
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+jobs:
+  test:
+    name: "test"
+    runs-on: ["ubuntu-latest"]
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: nix-shell ./default.nix --run "set -eo pipefail; source {0}"
+ 
+    steps:
+      - uses: cachix/install-nix-action@v31
+
+      - name: "Checkout HEAD of target branch"
+        uses: actions/checkout@v5
+        with:
+          clean: true
+          fetch-depth: 0
+          fetch-tags: true
+          # Important! This ensures we are actually testing the correct commit
+          # (not what would happen if it was merged to main...)
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: "Enforce coding standards"
+        run: |2
+          .git-hooks/pre-commit.bash
+
+      - name: "Run tests"
+        run: |2
+          bazel test --config=ci //... && bazel shutdown
+
+      - name: "Ensure the examples are functional"
+        run: |2
+          cd examples && ./run_tests.sh --config=ci && bazel shutdown

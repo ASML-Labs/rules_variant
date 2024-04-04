@@ -1,0 +1,116 @@
+# Copyright (c) 2026, ASML Netherlands B.V.
+# All rights reserved
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+load("@variable_build_attributes_variant_maps//:rules.bzl", "cc_binary", "variations")
+
+# Example of using a "select" statement on a configurable build attribute.
+# Here, each variant of the main target will be rendered with the same select
+# statement assigned to the "srcs" attribute.
+cc_binary(
+    name = "main_configurable",
+    srcs = select(
+        {
+            variations["rhel8x64"]: ["older.main.c"],
+            variations["rhel10x64"]: ["modern.main.c"],
+        },
+    ),
+    tags = ["no-regrets"],
+    variations = [
+        "rhel8x64",
+        "rhel10x64",
+    ],
+)
+
+# The same example, but using "variant_args". Here each of variants will be
+# rendered with srcs attribute pre-configured.
+cc_binary(
+    name = "main_variable",
+    tags = ["no-regrets"],
+    variant_args = {
+        "rhel8x64": {
+            "srcs": ["older.main.c"],
+        },
+        "rhel10x64": {
+            "srcs": ["modern.main.c"],
+        },
+    },
+    variations = [
+        "rhel8x64",
+        "rhel10x64",
+    ],
+)
+
+# Unlike "select", "variant_args" can be used to define values for attributes
+# marked as non-configurable. Consider the following example where "select" is
+# applied to the "tags" attribute. Building it lead to a loading phase error:
+
+# "BUILD.bazel: //variable_build_attributes:main_sort_of_configurable:
+# attribute "tags" is not configurable"
+#cc_binary(
+#    name = "main_sort_of_configurable",
+#    srcs = select(
+#        {
+#           variations["rhel8x64"]: ["older.main.c"],
+#           variations["rhel10x64"]: ["modern.main.c"],
+#        }
+#    ),
+#    tags = select(
+#        {
+#           variations["rhel8x64"]: ["no-regrets"],
+#           variations["rhel10x64"]: ["no-tears"],
+#        }
+#    ),
+#    variations = [
+#        "rhel8x64",
+#        "rhel10x64",
+#    ],
+#)
+
+# Contrary, using "variant_args" will yield legal targets, regardless of which
+# attribute it modifies.
+cc_binary(
+    name = "main",
+    variant_args = {
+        "rhel8x64": {
+            "name": "main~v1",
+            "srcs": ["older.main.c"],
+            "tags": ["no-regrets"],
+        },
+        "rhel10x64": {
+            "name": "main~v2",
+            "srcs": ["modern.main.c"],
+            "tags": ["no-tears"],
+        },
+    },
+    variations = [
+        "rhel8x64",
+        "rhel10x64",
+    ],
+)
+
+# This kind of variance is possible because processing of "variant_args",
+# "variation" and "variations" arguments happens in the loading phase - in a
+# build macro responsible for creation of instances of variant rules -
+# derivations. Processing of `select(s)` statements, however, occurs only after
+# targets are instantiated.
+#
+# In other words, "variant_args" only be used to define settings, and attributes
+# of specific instances of variant rules, but has no means to evaluate the
+# configuration in any way. Because of this reason, only prefixed, config setting
+# targets are exposed whenever "variant_args" is defined. Base, unprefixed
+# target is marked as incompatible in this case because unlike prefixed targets it cannot
+# reset its configuration in a predictable manner. Attempts to build such a
+# target either directly or indirectly will trigger a loading phase error
+# instructing to use one of prefixed targets instead.

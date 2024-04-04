@@ -1,0 +1,57 @@
+name: "release"
+run-name: "Release from commit ${{ github.sha }}"
+
+on:
+  push:
+    branches: ["main"]
+    # Ignore pushes that only modifes the files below,
+    # as they are automatic-release commits.
+    paths-ignore:
+      - "MODULE.bazel"
+      - "CHANGELOG.md"
+      - "README.md"
+      - "docs/README.md"
+
+jobs:
+  release:
+    name: "release"
+    runs-on: ["ubuntu-latest"]
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: nix-shell ./default.nix --run "set -eo pipefail; source {0}"
+ 
+    steps:
+      - uses: cachix/install-nix-action@v31
+
+      - name: "Checkout main branch"
+        uses: actions/checkout@v5
+        with:
+          clean: true
+          fetch-depth: 0
+          fetch-tags: true
+          # Important! This ensures we are actually testing the correct commit
+          # (not what would happen if it was merged to main...)
+          ref: ${{ github.event.pull_request.head.sha }}
+          # Without this, the push will not be authorized to work
+          token: ${{ secrets.gh_pat }}
+
+      - name: "Set git users for release commit"
+        run: |2
+          git config user.name "Github Actions"
+          git config user.email "actions@github.com"
+
+      - name: "Cog release"
+        run: |2
+          cog bump --auto --annotated 'Cog automatic release'
+
+      - name: "Push changes to origin"
+        run: |2
+          if [ $(git rev-list HEAD...origin/main --ignore-submodules --count) -eq 0 ]; then
+            echo "No commits to be pushed."
+            exit 0
+          fi
+
+          # We are pushing the changes only if there are commits to be pushed
+          git push
+          git push --tags

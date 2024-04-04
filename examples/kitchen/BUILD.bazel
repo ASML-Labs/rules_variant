@@ -1,0 +1,162 @@
+# Copyright (c) 2026, ASML Netherlands B.V.
+# All rights reserved
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+load("@bazel_skylib//rules:common_settings.bzl", "string_flag")
+load(
+    "@rules_kitchen//:rules.bzl",
+    dish = "cc_binary",
+    ingredient = "cc_library",
+    use = "variations",
+)
+
+# Common ingredients
+ingredient(
+    name = "olive_oil",
+    srcs = ["olive_oil.cc"],
+    hdrs = ["olive_oil.h"],
+)
+
+# It is not uncommon for garlic to taste differently depending
+# on what it is mixed with
+ingredient(
+    name = "garlic",
+    srcs = ["garlic.cc"],
+    hdrs = ["garlic.h"],
+)
+
+# Sometimes you just know how much salt is enough
+config_setting(
+    name = "extra_salty",
+    flag_values = {":saltiness": "extra_salty"},
+)
+
+string_flag(
+    name = "saltiness",
+    build_setting_default = "none",
+)
+
+ingredient(
+    name = "salt",
+    srcs = ["salt.cc"] +
+           select(
+               {
+                   ":extra_salty": ["salty.salt.cc"],
+                   "//conditions:default": [],
+               },
+           ),
+    hdrs = ["salt.h"],
+)
+
+# Variant ingredient: Tomato prepared in different ways.
+ingredient(
+    name = "tomato",
+    srcs = select(
+        {
+            use["chopped"]: ["tomato_chopped.cc"],
+            use["crushed"]: ["tomato_crushed.cc"],
+            use["whole"]: ["tomato_whole.cc"],
+        },
+    ),
+    hdrs = ["tomato.h"],
+    variations = [
+        "chopped",
+        "crushed",
+        "whole",
+    ],
+)
+
+# Variant ingredient: Basil indicating fresh or dried.
+ingredient(
+    name = "basil",
+    srcs = select(
+        {
+            use["fresh"]: ["basil_fresh.cc"],
+            use["dried"]: ["basil_dried.cc"],
+        },
+    ),
+    hdrs = ["basil.h"],
+    variations = [
+        "dried",
+        "fresh",
+    ],
+    deps = [":garlic"],  # I'd never use basil without some garlic
+)
+
+# Variant ingredient: Cheese with flavor profiles.
+ingredient(
+    name = "cheese",
+    srcs = select(
+        {
+            use["mild"]: ["cheese_mild.cc"],
+            use["sharp"]: ["cheese_sharp.cc"],
+        },
+    ),
+    hdrs = ["cheese.h"],
+    variations = [
+        "mild",
+        "sharp",
+    ],
+)
+
+# New: Variant ingredient that depends on another variant ingredient.
+# Example: Seasoned tomato sauce, which can be made from either chopped or crushed tomatoes.
+ingredient(
+    name = "seasoned_tomato_sauce",
+    srcs = ["seasoned_tomato_sauce.cc"],
+    hdrs = ["seasoned_tomato_sauce.h"],
+    variations = [
+        "delicate",
+        "dense",  # usually saltier
+    ],
+    deps = select(
+        {
+            use["delicate"]: [":chopped/tomato"],
+            use["dense"]: [":crushed/tomato"],
+        },
+    ) + [
+        ":fresh/basil",
+        ":olive_oil",
+        ":salt",
+    ],
+)
+
+# Dishes with explicit variants
+dish(
+    name = "spaghetti_al_pomodoro",
+    srcs = ["spaghetti_al_pomodoro.cc"],
+    deps = [
+        ":delicate/seasoned_tomato_sauce",  # This dish uses the seasoned tomato sauce.
+        ":mild/cheese",
+    ],
+)
+
+dish(
+    name = "rustic_tomato_soup",
+    srcs = ["rustic_tomato_soup.cc"],
+    deps = [
+        ":dried/basil",
+        ":salt",  # a bit of salt to enhance the taste
+        ":whole/tomato",
+    ],
+)
+
+dish(
+    name = "gourmet_pizza",
+    srcs = ["gourmet_pizza.cc"],
+    deps = [
+        ":dense/seasoned_tomato_sauce",  # Gourmet pizza uses the seasoned tomato sauce.
+        ":sharp/cheese",
+    ],
+)

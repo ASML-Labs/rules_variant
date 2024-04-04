@@ -1,0 +1,61 @@
+# Copyright (c) 2026, ASML Netherlands B.V.
+# All rights reserved
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Load the cc_binary rule and variations from the rules_example_cc repository.
+# These are used to define C++ binary targets and to access configuration settings for conditional source inclusion.
+load("@rules_example_cc//example_cc:defs.bzl", "cc_binary", "variations")
+
+# Define a cc_binary target named 'main'. This target compiles a C++ binary from source files
+# that are conditionally selected based on the current build configuration.
+cc_binary(
+    name = "main",
+    # Use the 'select' function to conditionally include source files based on the build configuration.
+    # The 'variations' variable provides access to predefined configuration flags.
+    srcs = select(
+        {
+            variations["rhel8x64"]: [
+                "hello-world.cc",  # Source file for builds targeting the RHEL 8 x86_64 platform.
+            ],
+            variations["wrl6x64"]: [
+                "bye-world.cc",  # Source file for builds targeting the WRL 6 x86_64 platform.
+            ],
+            variations["wrl18ppce6500"]: [
+                "hey-world.cc",  # Source file for builds targeting the WRL 18 PPC e6500 platform.
+            ],
+            "//conditions:default": [],  # Fallback condition with no source files.
+        },
+    ),
+    # Specify the build configurations (platforms) for which this target can be built.
+    # These should correspond to the keys used in the 'srcs' select statement.
+    variations = [
+        "rhel8x64",
+        "wrl18ppce6500",
+        "wrl6x64",
+    ],
+    # Make this target visible to all targets within the same Bazel workspace.
+    visibility = ["//:__subpackages__"],
+)
+
+# Define a filegroup named 'combined'. This groups together the binaries built from the 'main' target
+# under different configurations into a single logical target. This can be useful for packaging or deployment.
+filegroup(
+    name = "combined",
+    # Include the binaries built for different platforms as specified in the 'configs' of the 'main' target.
+    srcs = [
+        ":rhel8x64/main",
+        ":wrl18ppce6500/main",
+        ":wrl6x64/main",
+    ],
+)

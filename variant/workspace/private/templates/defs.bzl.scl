@@ -1,0 +1,79 @@
+# Copyright (c) 2026, ASML Netherlands B.V.
+# All rights reserved
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+_base = ""
+
+_maps__init = """
+variation_map = {variation_map}
+pre_transition_binding_map = dict()
+post_transition_binding_map = {{ "base": "@{repository_name}//:base_variation" }}
+
+def variation(variation_name):
+    \"\"\"Get condition for select statement, that matches given variation name.
+
+    This function will return a label reference that can be placed inside
+    select statement, that will be "matched" by the select, if configuration
+    matches variation specified on the input.
+
+    This function will call 'fail' if matching variation is not found.
+
+    Example:
+    ```
+    load("@variation_map//:defs.bzl", "variation")
+
+    cc_library(
+        name = "libFOO",
+        srcs = ["foo.c"] + select(
+            {{
+                variation("rhel8x64"): ["foo_x86.c"],
+                variation("vx6ppc"): ["foo_vx.c"],
+                variation("wrl18arma72"): ["foo_arm.c"],
+                variation("wrl6x64"): ["foo_x86.c"],
+                "//conditions:default": [],
+            }},
+        ),
+        variations = [
+            "rhel8x64",
+            "vx6ppc",
+            "wrl18arma72",
+            "wrl6x64",
+        ],
+        visibility = ["//visibility:public"],
+    )
+    ```
+
+    Args:
+        variation_name: (string) name of the variation for which a select
+        condition should be found.
+
+    Returns:
+        String: label reference to a config_setting or constraint_value
+    \"\"\"
+    if not variation_name in post_transition_binding_map:
+        fail("Select condition for variation {{}} requested, but variation not found!".format(variation_name))
+    return post_transition_binding_map.get(variation_name)
+
+"""
+
+_maps__binding = """
+pre_transition_binding_map["{name}"] = "@{repository_name}//:{name}"
+post_transition_binding_map["{name}"] = "@{repository_name}//:{name}_variation"
+"""
+
+parts = struct(
+    base = _base,
+    maps__init = _maps__init,
+    maps__binding = _maps__binding,
+)

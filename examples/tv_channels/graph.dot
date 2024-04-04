@@ -1,0 +1,27 @@
+digraph mygraph {
+  node [shape=box];
+  rankdir = LR;
+  "(open_subconscious)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">e1fec3e (open_subconscious)</TD></TR></TABLE>>,fillcolor="#e1fec3e0",color=black,style="filled,solid",shape=ellipse]
+  "(frozen_pain)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">14acbc7 (frozen_pain)</TD></TR></TABLE>>,fillcolor="#14acbc70",color=black,style="filled,solid",shape=ellipse]
+  "(miserly_trigonometry)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">ca4025a (miserly_trigonometry)</TD></TR></TABLE>>,fillcolor="#ca4025a0",color=black,style="filled,solid",shape=ellipse]
+  "(neighboring_gesture)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">1434c8c (neighboring_gesture)</TD></TR></TABLE>>,fillcolor="#1434c8c0",color=black,style="filled,solid",shape=ellipse]
+  "(miserly_trigonometry)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">ca4025a (miserly_trigonometry)</TD></TR></TABLE>>,fillcolor="#ca4025a0",color=black,style="filled,solid",shape=ellipse]
+
+  "//tv_channels:weather/channel (open_subconscious)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//tv_channels:weather/channel</TD></TR></TABLE>>,fillcolor="#e1fec3e0",color=black,style="filled,solid"]
+  "//tv_channels:weather/channel (open_subconscious)" -> "//tv_channels:weather/channel_with_cfg (miserly_trigonometry)"
+  "//tv_channels:weather/channel_with_cfg (miserly_trigonometry)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//tv_channels:weather/channel_with_cfg</TD></TR></TABLE>>,fillcolor="#ca4025a0",color=black,style="filled,solid"]
+  "//tv_channels:weather/channel_with_cfg (miserly_trigonometry)" -> "//tv_channels:weather/channel_/channel (frozen_pain)"
+  "//tv_channels:weather/channel_/channel (frozen_pain)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//tv_channels:weather/channel_/channel</TD></TR></TABLE>>,fillcolor="#14acbc70",color=black,style="filled,solid"]
+  "//tv_channels:weather/channel_/channel (frozen_pain)" -> "//tv_channels:acme_media (frozen_pain)"
+  "//tv_channels:sports/channel (open_subconscious)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//tv_channels:sports/channel</TD></TR></TABLE>>,fillcolor="#e1fec3e0",color=black,style="filled,solid"]
+  "//tv_channels:sports/channel (open_subconscious)" -> "//tv_channels:sports/channel_with_cfg (miserly_trigonometry)"
+  "//tv_channels:sports/channel_with_cfg (miserly_trigonometry)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//tv_channels:sports/channel_with_cfg</TD></TR></TABLE>>,fillcolor="#ca4025a0",color=black,style="filled,solid"]
+  "//tv_channels:sports/channel_with_cfg (miserly_trigonometry)" -> "//tv_channels:sports/channel_/channel (neighboring_gesture)"
+  "//tv_channels:sports/channel_/channel (neighboring_gesture)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//tv_channels:sports/channel_/channel</TD></TR></TABLE>>,fillcolor="#1434c8c0",color=black,style="filled,solid"]
+  "//tv_channels:sports/channel_/channel (neighboring_gesture)" -> "//tv_channels:acme_media (neighboring_gesture)"
+  "//tv_channels:default/channel (miserly_trigonometry)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//tv_channels:default/channel</TD></TR></TABLE>>,fillcolor="#ca4025a0",color=black,style="filled,solid"]
+  "//tv_channels:default/channel (miserly_trigonometry)" -> "//tv_channels:acme_media (miserly_trigonometry)"
+  "//tv_channels:acme_media (miserly_trigonometry)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//tv_channels:acme_media</TD></TR></TABLE>>,fillcolor="#ca4025a0",color=black,style="filled,solid"]
+  "//tv_channels:acme_media (frozen_pain)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//tv_channels:acme_media</TD></TR></TABLE>>,fillcolor="#14acbc70",color=black,style="filled,solid"]
+  "//tv_channels:acme_media (neighboring_gesture)" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD BGCOLOR="white">//tv_channels:acme_media</TD></TR></TABLE>>,fillcolor="#1434c8c0",color=black,style="filled,solid"]
+}

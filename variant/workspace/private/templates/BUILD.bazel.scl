@@ -1,0 +1,71 @@
+# Copyright (c) 2026, ASML Netherlands B.V.
+# All rights reserved
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+_base = """
+load("@with_cfg.bzl", "original_settings")
+load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
+load("@bazel_skylib//rules:common_settings.bzl", "string_flag")
+load("@rules_variant//variant:defs.bzl", "flags")
+"""
+
+_bindings__pre_transition_init = """
+flags.string_flag_with_values(
+    name = "variations",
+    values = {values},
+    multiple = True,
+    enable_all = {enable_variations_by_default},
+    visibility = ["//visibility:public"],
+)
+"""
+
+_bindings__post_transition_init = """
+string_flag(
+    name = "variation",
+    build_setting_default = "base_variation",
+)
+config_setting(
+    name = "base_variation",
+    flag_values = {{":variation": "base_variation"}},
+)
+"""
+
+_bindings__post_transition_binding = """
+config_setting(
+    name = "{name}_variation",
+    flag_values = {settings},
+)"""
+
+_bzl_library = """
+bzl_library(
+    name = "rules",
+    srcs = ["rules.bzl"],
+    visibility = ["//visibility:public"],
+)
+"""
+
+_original_settings = """
+original_settings(
+    name = "original_settings",
+)
+"""
+
+parts = struct(
+    base = _base,
+    bindings__post_transition_binding = _bindings__post_transition_binding,
+    bindings__post_transition_init = _bindings__post_transition_init,
+    bindings__pre_transition_init = _bindings__pre_transition_init,
+    bzl_library = _bzl_library,
+    original_settings = _original_settings,
+)

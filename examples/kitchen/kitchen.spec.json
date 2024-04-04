@@ -1,0 +1,37 @@
+{
+    "chopped": {
+      "platform_suffix": "chopped"
+    },
+    "crushed": {
+      "platform_suffix": "crushed"
+    },
+    "whole": {
+      "platform_suffix": "whole"
+    },
+    "fresh": {
+      "platform_suffix": "fresh"
+    },
+    "dried": {
+      "platform_suffix": "dried"
+    },
+    "mild": {
+      "platform_suffix": "mild"
+    },
+    "sharp": {
+      "platform_suffix": "sharp"
+    },
+    "delicate": {
+      "platform_suffix": "delicate",
+      "copt": [
+        "-DSAUCE_BLEND=Delicate"
+      ]
+    },
+    "dense": {
+      "platform_suffix": "dense",
+      "copt": [
+        "-DSAUCE_BLEND=Dense",
+        "-DEXTRA_SALTY"
+      ],
+      "@//kitchen:saltiness": "extra_salty"
+    }
+}
