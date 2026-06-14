@@ -1,0 +1,73 @@
+name: "publish"
+run-name: "Publish release of commit ${{ github.sha }}"
+
+# https://github.com/bazel-contrib/.github/blob/1d798ff015ed0696433e01e2c3ccbb2abefadad7/.github/workflows/release_ruleset.yaml
+permissions:
+  id-token: write        # Needed to attest provenance
+  attestations: write    # Needed to attest provenance
+  contents: write        # Needed to upload release files
+
+on:
+  push:
+    branches: ["main"]
+    # Simplified detection of a cog-release:
+    # CHANGELOG.md file has been modified.
+    paths:
+      - "CHANGELOG.md"
+
+jobs:
+  prepare:
+    name: "prepare"
+    runs-on: ["ubuntu-latest"]
+    outputs:
+      version: ${{ steps.gen_release_artifacts.outputs.version }}
+
+    steps:
+      - uses: cachix/install-nix-action@v31
+
+      - name: "Checkout 'main' branch"
+        uses: actions/checkout@v5
+        with:
+          clean: true
+          fetch-depth: 0
+          fetch-tags: true
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: "Generate release artifacts"
+        id: gen_release_artifacts
+        shell: bash
+        run: |2
+          outs="$(./scripts/gen-release-artifacts.bash)"
+          export outs
+          echo "outs=${outs}" >> "$GITHUB_OUTPUT"
+          version="$(cat "${outs}/version")"
+          export version
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+
+      # This step is made to ensure the uploaded archive file does not contain ./release as top-level file
+      - shell: bash
+        run: |2
+          mkdir ./release
+          cp ${{ steps.gen_release_artifacts.outputs.outs}}/${{ steps.gen_release_artifacts.outputs.version }}.tar.gz ./release/${{ steps.gen_release_artifacts.outputs.version }}.tar.gz
+          cp ${{ steps.gen_release_artifacts.outputs.outs}}/release_notes.md ./release/release_notes.md
+
+      # Upload generated artifacts, so that bazel-contrib/.github workflow release_ruleset can use them
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release
+          path: |2
+            ./release/${{ steps.gen_release_artifacts.outputs.version }}.tar.gz
+            ./release/release_notes.md
+          retention-days: 1
+
+  publish_github:
+    name: "Publish Github release"
+    needs: "prepare"
+    uses: bazel-contrib/.github/.github/workflows/release_ruleset.yaml@v7.7.0
+    with:
+      draft: false
+      mount_bazel_caches: false
+      prerelease: false
+      release_files: |2
+        ./release/*
+      tag_name: ${{ needs.prepare.outputs.version }}
