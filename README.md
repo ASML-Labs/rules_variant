@@ -141,72 +141,201 @@ dependencies and explicit configuration transitions.
 ## Glossary
 
 ### Baseline
-A baseline is the standard version of a rule or macro that serves as the starting point
-for creating variants.
+The standard version of a rule or macro that serves as the starting point for creating
+variants.
 
 ### Rule Prototype
-A list of rule descriptions that include:
+A description of a rule to be variant-ized, consisting of:
 - **kind:** The name and source of the rule or macro.
-- **executable:** (Optional) Indicates if the rule is executable, usually true for
-  rules ending with '_binary'.
-- **implicit_targets:** (Optional) Patterns for automatically included targets, using
+- **executable:** *(Optional)* Whether the rule is executable; usually `true` for rules
+  ending in `_binary`.
+- **implicit_targets:** *(Optional)* Patterns for automatically included targets, using
   placeholders like `{name}`, `{basename}`, and `{dirprefix}`.
-- **extra_providers:** (Optional) Additional providers that extend the base rule or
-  macro, each defined by 'name' and 'source'.
+- **extra_providers:** *(Optional)* Additional providers to forward from the base rule or
+  macro, each defined by a `name` and `source`.
+
+### Variation Point
+A specific aspect of a product where customization happens to produce a variant. A
+variation point is equivalent to a Bazel build setting together with the set of values it
+accepts. For example, a `platform` point that accepts `linux` or `windows`, or a
+`cpp_standard` point that accepts `c++11` or `c++17`.
 
 ### Variation
-A variation represents differences in a workspace that can be built with different
-settings, such as:
-- Using `platforms` command-line flag set to either `linux` or `windows`.
-- Using `cpp_standard` command-line flag set to either `c++11` or `c++17`.
+A specific choice from the values of a variation point. For example, `windows` is a
+variation of the `platform` point, and `c++17` is a variation of the `cpp_standard` point.
 
-Examples of variations include:
-- `linux_platform_c++11_cpp_standard`
-- `linux_platform_c++17_cpp_standard`
-- `windows_platform_c++11_cpp_standard`
-- `windows_platform_c++17_cpp_standard`
+### Compound Variation
+A set of choices across multiple variation points. In other words, a configuration.
+A compound variation is a key/value map, for example:
+```json
+{
+  "platform": "windows",
+  "cpp_standard": "c++17"
+}
+```
 
-#### Variation Map
-A mapping of unique labels to dictionaries that define variation points and their valid
-options. This map helps manage different configurations or compound variations.
+### Variation Map
+A mapping of unique labels to compound variations. For example:
+```json
+{
+  "linux_platform_c++11_cpp_standard": {
+    "platform": "linux",
+    "cpp_standard": "c++11"
+  },
+  "linux_modern": {
+    "platform": "linux",
+    "cpp_standard": "c++17"
+  },
+  "windows": {
+    "platform": "windows"
+  },
+  "legacy_cpp": {
+    "cpp_standard": "c++11"
+  },
+  "windows_experimental": {
+    "platform": "windows",
+    "cpp_standard": "c++17"
+  }
+}
+```
 
-#### Variation Map Repository
-A virtual repository in Bazel that provides the variation map and tools for applying
+### Variation Map Repository
+A virtual Bazel repository that provides the variation map and the tooling for applying
 variations conditionally.
 
 ### Variant
-A variant is a specific version of a rule that has unique characteristics, leading to
-different outcomes based on the options applied. For example, a `cc_binary` rule
-variant might disable optimization for the Windows platform.
+The resulting form of a build rule after a variation or compound variation has been applied
+to it. In other words, a configured build rule. For example, `cc_binary_windows_experimental` is
+the variant of `cc_binary` with the compound variation
+`{platform: "windows", cpp_standard: "c++17"}` applied.
 
-#### Variant Map
-A collection of all variants derived from a rule prototype, including specific bindings
-for conditional instantiation of these variants.
+### Variant Map
+A mapping of all variants derived from a set of rule prototypes and a variation map. For
+example:
+```text
+{
+  linux_platform_c++11_cpp_standard: cc_binary_linux_platform_c++11_cpp_standard,
+  linux_modern: cc_binary_linux_modern,
+  windows: cc_binary_windows,
+  legacy_cpp: cc_binary_legacy_cpp,
+  windows_experimental: cc_binary_windows_experimental,
+}
+```
 
-#### Variant Maps Repository
-A virtual repository that supplies variant maps and tools for conditional instantiation
-and management of variants, including their derivations.
+### Variant Maps Repository
+A virtual repository that supplies variant maps and the tooling for conditionally
+instantiating variants and their derivations.
 
 ### Derivation
-A callable that represents an innstance of a specific variant of a rule plus input
-attributes like `src` and `deps`. It can also be seen as equivalent of a configured target.
+A callable macro that produces instances of variants (configured targets). It accepts the
+attributes of a base rule plus one of `variation` or `variations`.
+
+For example, this `cc_binary` derivation:
+```starlark
+cc_binary(
+    name = "main",
+    srcs = ["main.c"],
+    variations = [
+        "windows_experimental",
+        "linux_modern",
+    ],
+)
+```
+expands to:
+```starlark
+cc_binary(
+    name = "main",
+    srcs = ["main.c"],
+    target_compatible_with = select({
+        "@variation_map//:base_variation": ["@platforms//:incompatible"],
+        "//conditions:default": [],
+    }),
+)
+cc_binary_windows_experimental(
+    name = "windows_experimental/main",
+    srcs = ["main.c"],
+    target_compatible_with = select({
+        "@variation_map//:windows_experimental": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+cc_binary_linux_modern(
+    name = "linux_modern/main",
+    srcs = ["main.c"],
+    target_compatible_with = select({
+        "@variation_map//:linux_modern": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+```
 
 ### Binding
-A condition that determines a variation point. It "activates" a specific variant.
-From the end-user perspective, bindings are defined using `variations` attribute passed
-to a derivation callable.
+A condition that is satisfied by activating one or more variations.
+
+### Binding Time
+The time at which the decision about instantiating a binding must be made.
 
 #### Pre-Transition Binding
-A setting that denotes the currently enabled variations, marking compatible
-derivations as directly accessible build targets. Defined using `variations` attribute
-of a derivation target.
+Marks the build targets derived from active variations as compatible (buildable). A
+pre-transition binding can be satisfied by several variations at the same time, that is every
+variation enabled by default or named on the command line.
+
+In the expanded derivation above, each variant target becomes compatible only when its
+variation is active:
+```starlark
+cc_binary_windows_experimental(
+    name = "windows_experimental/main",
+    srcs = ["main.c"],
+    target_compatible_with = select({
+        "@variation_map//:windows_experimental": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+cc_binary_linux_modern(
+    name = "linux_modern/main",
+    srcs = ["main.c"],
+    target_compatible_with = select({
+        "@variation_map//:linux_modern": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+```
+Building with `--variants=windows_experimental --variants=linux_modern` makes both
+`windows_experimental/main` and `linux_modern/main` buildable at once.
 
 #### Post-Transition Binding
-A setting that specifies a single enabled variation from the current evaluation
-context, allowing for selective application of configurable attributes in the variant
-derivation. For example, a specific binding, extracted from `variants` dictionary can
-be used in a `select` statement of a variant derivation to use a different source 
-file in target `src` attribute depending on currently enabled variation.
+Selectively applies a configurable attribute based on the single variation active in the
+current evaluation context. Whereas a pre-transition binding can be satisfied by many
+variations simultaneously (deciding *which targets are buildable*), a
+post-transition binding is satisfied by exactly one variation at a time, and decides *how attributes of a configred target are evaluated*.
+
+Post-transition bindings are usually consumed through the `variations` dictionary exposed by the
+generated rules repository. Its keys map variation names to `config_setting` labels that can
+be used in a `select()`, letting a single derivation vary its `srcs`, `deps`, `copt`, or any
+other configurable attribute per variation:
+```starlark
+load("@my_variants//:rules.bzl", "cc_binary", "variations")
+
+cc_binary(
+    name = "main",
+    srcs = select({
+        variations["windows_experimental"]: ["main.windows.c"],
+        variations["linux_modern"]: ["main.linux.c"],
+        "//conditions:default": ["main.compat.c"],
+    }),
+    variations = [
+        "windows_experimental",
+        "linux_modern",
+    ],
+)
+```
+Here the two bindings work together: the `variations = [...]` attribute is the
+pre-transition binding that produces the `windows_experimental/main` and `linux_modern/main` targets
+and marks them buildable, while the `select(variations[...])` in `srcs` is the
+post-transition binding. Once Bazel is actually building `windows_experimental/main`, only the
+`windows_experimental` branch is active, so that variant compiles `main.windows.c`. Because a single
+configured target resolves exactly one variation, only one branch of the `select` is ever
+chosen per build.
 
 ## Similar projects
 
@@ -216,4 +345,3 @@ that should work across all rules. You should decide to use it over `rules_varia
 configuration / setup drift, as long as each target in your workspace file is not intended to be build multiple times with different configurations. You should decide
 to use it over `rules_variant` if You do not need to use the same targets for multiple build configurations and do not need advanced capabilties to modify the rules
 (including attributes) between configs.
-
