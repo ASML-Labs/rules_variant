@@ -115,8 +115,8 @@ https://docs.bazel.build/versions/main/skylark/macros.html
 | <a id="flags.string_flag_with_values-values"></a>values |  list of strings, the valid values for this flag to be set to.   |  none |
 | <a id="flags.string_flag_with_values-default"></a>default |  string, whatever the default value should be if the flag is not set. Can be empty string for both a string_flag and a multi_string flag.   |  `""` |
 | <a id="flags.string_flag_with_values-multiple"></a>multiple |  boolean, True if the flag should be able to be set multiple times on the CLI.   |  `False` |
-| <a id="flags.string_flag_with_values-enable_all"></a>enable_all |  boolean, True if by all supported values should be set by default.   |  `True` |
-| <a id="flags.string_flag_with_values-visibility"></a>visibility |  list of Label, defines visiblility of user-facing config settings.   |  `["//:__subpackages__"]` |
+| <a id="flags.string_flag_with_values-enable_all"></a>enable_all |  boolean, True if all supported values should be set by default.   |  `True` |
+| <a id="flags.string_flag_with_values-visibility"></a>visibility |  list of Label, defines visibility of user-facing config settings.   |  `["//:__subpackages__"]` |
 
 
 <a id="variant_builder"></a>

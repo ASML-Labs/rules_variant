@@ -1,6 +1,6 @@
 # TV and Radio Channels Example
 
-This example demonstrates the use of `rules_variant` to configure and TV, radio channels with content that varies based on the build configuration. It utilizes custom rules, macros, and genrules to showcase dynamic configuration adjustments.
+This example demonstrates the use of `rules_variant` to configure TV and radio channels with content that varies based on the build configuration. It utilizes custom rules, macros, and genrules to showcase dynamic configuration adjustments.
 
 ## Overview
 

@@ -17,6 +17,6 @@
 #include <iostream>
 void print_basil_variant() {
     std::cout << "Ingredient: Basil - Fresh" << std::endl;
-    print_garlic("Noticable");
+    print_garlic("Noticeable");
 }
 

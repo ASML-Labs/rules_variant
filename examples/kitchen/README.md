@@ -29,7 +29,7 @@ Ingredient: Cheese - Mild
 Ingredient: Delicate Seasoned Tomato Sauce
 Ingredient: Tomato - Chopped
 Ingredient: Basil - Fresh
-Ingredient: Garlic - Noticable
+Ingredient: Garlic - Noticeable
 Ingredient: Olive Oil
 Ingredient: Salt
 ```
@@ -99,7 +99,7 @@ Ingredient: Cheese - Sharp
 Ingredient: Dense Seasoned Tomato Sauce
 Ingredient: Tomato - Crushed
 Ingredient: Basil - Fresh
-Ingredient: Garlic - Noticable
+Ingredient: Garlic - Noticeable
 Ingredient: Olive Oil
 Ingredient: Salt
 Ingredient: Salty Salt
