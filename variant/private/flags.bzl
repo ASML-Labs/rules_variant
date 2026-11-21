@@ -85,7 +85,7 @@ def _string_flag_with_values(
             empty string for both a string_flag and a multi_string flag.
         multiple: boolean, True if the flag should be able to be set multiple times on the CLI.
         enable_all: boolean, True if by all supported values should be set by default.
-        visibility: list of Label, defines visiblility of user-facing config settings.
+        visibility: list of Label, defines visibility of user-facing config settings.
     """
     if multiple:
         _multi_string_flag(

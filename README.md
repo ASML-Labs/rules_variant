@@ -105,7 +105,7 @@ significant overhead to the build graph.
   code to given platform.
 2. **Code duplication**: Historically, if Bazel repository contained a target destined
   to be build for multiple target platforms (will use different configurations) it was:
-  (a) expected out of user to run the build mutliple times, each with correct set of flags
+  (a) expected out of user to run the build multiple times, each with correct set of flags
   for given platform; (b) containing duplicated definitions of said target, each with
   platform-specific constraints assigned to them; (c) containing macros effectively hiding
   (b) behind a pretty name. All of those approaches have downsides that the authors of the current
@@ -120,10 +120,10 @@ significant overhead to the build graph.
   multi-platforms, where build is performed multiple times with different build
   flags / settings. Such flags also may need to be set even when Bazel repository
   contain only one target platform. This introduces the problem of keeping those
-  settings uniform across different enviroments - developers, CI etc. `rules_variant`
+  settings uniform across different environments - developers, CI etc. `rules_variant`
   solves this problem by assigning concrete configurations to targets, all of which are
   codified in versioned files. This ensures that all of required settings are set
-  the same way across different enviornments.
+  the same way across different environments.
 4. **Readability**: With many other approaches to multiplatform builds, it is hard to
   quickly reason about what are the existing configurations and how they are applied to
   given targets. `rules_variant` makes that information explicit and localized directly in the
@@ -307,7 +307,7 @@ Building with `--variants=windows_experimental --variants=linux_modern` makes bo
 Selectively applies a configurable attribute based on the single variation active in the
 current evaluation context. Whereas a pre-transition binding can be satisfied by many
 variations simultaneously (deciding *which targets are buildable*), a
-post-transition binding is satisfied by exactly one variation at a time, and decides *how attributes of a configred target are evaluated*.
+post-transition binding is satisfied by exactly one variation at a time, and decides *how attributes of a configured target are evaluated*.
 
 Post-transition bindings are usually consumed through the `variations` dictionary exposed by the
 generated rules repository. Its keys map variation names to `config_setting` labels that can
@@ -343,5 +343,5 @@ chosen per build.
 that should work across all rules. You should decide to use it over `rules_variant` if You need to create Your own "glue" holding together the instrumented targets.
 2. [auto_configured_builds](https://github.com/bazelbuild/examples/tree/main/configurations/auto_configured_builds) - this Bazel feature is solving the problem of
 configuration / setup drift, as long as each target in your workspace file is not intended to be build multiple times with different configurations. You should decide
-to use it over `rules_variant` if You do not need to use the same targets for multiple build configurations and do not need advanced capabilties to modify the rules
+to use it over `rules_variant` if You do not need to use the same targets for multiple build configurations and do not need advanced capabilities to modify the rules
 (including attributes) between configs.
