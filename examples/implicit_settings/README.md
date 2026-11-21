@@ -1,6 +1,6 @@
 # implicit_settings example
 
-This example demonstrates how to augument variation specification with extra options.
+This example demonstrates how to augment variation specification with extra options.
 
 ## Overview
 
